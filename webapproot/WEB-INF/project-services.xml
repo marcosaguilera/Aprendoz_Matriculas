@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd" xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <import resource="classpath:Anual.spring.xml"/>
+    <import resource="classpath:JSCreaMatricula.spring.xml"/>
+    <import resource="classpath:Mensualidad.spring.xml"/>
+    <import resource="classpath:aprendoz_desarrollo.spring.xml"/>
+    <import resource="classpath:contratoMatricula.spring.xml"/>
+    <import resource="classpath:matriculados.spring.xml"/>
+    <import resource="classpath:matriculadosGrado.spring.xml"/>
+    <import resource="classpath:pagare.spring.xml"/>
+    <import resource="classpath:com/wavemaker/runtime/service/runtimeServiceBean.xml"/>
+    <import resource="classpath:screenshot.spring.xml"/>
+    <import resource="classpath:securityService.spring.xml"/>
+</beans>

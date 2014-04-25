@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="repo_Mensualidades" language="groovy" pageWidth="595" pageHeight="842" columnWidth="483" leftMargin="56" rightMargin="56" topMargin="42" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="80"/>
+	<parameter name="idpersona" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT DISTINCT
+     PERSONA.`Id_Persona` AS PERSONA_Id_Persona,
+     PERSONA.`Apellido1` AS PERSONA_Apellido1,
+     PERSONA.`Apellido2` AS PERSONA_Apellido2,
+     PERSONA.`Nombre1` AS PERSONA_Nombre1,
+     PERSONA.`Nombre2` AS PERSONA_Nombre2,
+     padre.`Id_Persona` AS padre_Id_Persona,
+     padre.`Apellido1` AS padre_Apellido1,
+     padre.`Apellido2` AS padre_Apellido2,
+     padre.`Nombre1` AS padre_Nombre1,
+     padre.`Nombre2` AS padre_Nombre2,
+     padre.`No_Documento` AS documento,
+     padre.`Direccion_Residencia` AS direccion,
+     padre.`telefono` AS telefono,
+     Tipo_Persona.`Tipo_Persona` AS Tipo_Persona_Tipo_Persona,
+     Tipo_Persona.`Id_Tipo_Persona` AS Tipo_Persona_Id_Tipo_Persona,
+     Curso.`Curso` AS Curso_Curso,
+     Grado.`Grado` AS Grado_Grado,
+     Grado.`Id_Grado` AS Grado_Id_Grado,
+     Curso.`Id_Curso` AS Curso_Id_Curso,
+     costos.`id_costo` AS costos_id_costo,
+     costos.`codigo` AS costos_codigo,
+     costos.`nombre_producto` AS costos_nombre_producto,
+     costos.`descripcion` AS costos_descripcion,
+     costos.`valor` AS costos_valor,
+     costos.`nuevo` AS costos_nuevo,
+     costos.`obligatorio` AS costos_obligatorio,
+     costos.`positivo` AS costos_positivo,
+     costos.`Grado_Id_Grado` AS costos_Grado_Id_Grado,
+     costos.`SY_Id_SY` AS costos_SY_Id_SY,
+     costos.`anual` AS costos_anual,
+     insc_alum_costo.`Id_Insc_Alum_Costo` AS insc_alum_costo_Id_Insc_Alum_Costo,
+     insc_alum_costo.`Persona_Id_Persona` AS insc_alum_costo_Persona_Id_Persona,
+     insc_alum_costo.`costo_Id_costo` AS insc_alum_costo_costo_Id_costo,
+     insc_alum_costo.`SY_Id_SY` AS insc_alum_costo_SY_Id_SY,
+     insc_alum_costo.`inscrito` AS insc_alum_costo_inscrito,
+     insc_alum_costo.`descuento_porcentaje` AS insc_alum_costo_descuento_porcentaje,
+     insc_alum_costo.`descuento_valor` AS insc_alum_costo_descuento_valor,
+     insc_alum_costo.`valor_final_descuento` AS insc_alum_costo_valor_final_descuento,
+     insc_alum_costo.`fecha_inicio` AS insc_alum_costo_fecha_inicio,
+     insc_alum_costo.`fecha_fin` AS insc_alum_costo_fecha_fin,
+     insc_alum_costo.`observacion` AS insc_alum_costo_observacion,
+     PERSONA.`Codigo` AS PERSONA_Codigo,
+     Tipo_Persona_A.`Tipo_Persona` AS Tipo_Persona_A_Tipo_Persona,
+     Tipo_Persona_A.`Id_Tipo_Persona` AS Tipo_Persona_A_Id_Tipo_Persona,
+     PERSONA.`Grupo_Familiar_ID_Grupo_Familiar` AS PERSONA_Grupo_Familiar_ID_Grupo_Familiar,
+     acudiente.`Apellido1` AS acudiente_Apellido1,
+     acudiente.`Apellido2` AS acudiente_Apellido2,
+     acudiente.`Nombre2` AS acudiente_Nombre2,
+     acudiente.`Nombre1` AS acudiente_Nombre1,
+     acudiente.`Id_Persona` AS acudiente_Id_Persona,
+     acudiente.`Direccion_Residencia` AS acudiente_Direccion_Residencia,
+     acudiente.`Telefono` AS acudiente_Telefono,
+     acudiente.`No_Documento` AS acudiente_No_Documento,
+     acudiente.`Telefono_Oficina` AS acudiente_Telefono_Oficina,
+     acudiente.`Celular` AS acudiente_Celular,
+     madre.`Apellido1` AS madre_Apellido1,
+     madre.`Apellido2` AS madre_Apellido2,
+     madre.`Nombre2` AS madre_Nombre2,
+     madre.`Nombre1` AS madre_Nombre1,
+     madre.`Id_Persona` AS madre_Id_Persona,
+     madre.`Direccion_Residencia` AS madre_Direccion_Residencia,
+     madre.`Telefono` AS madre_Telefono,
+     madre.`No_Documento` AS madre_No_Documento,
+     padre.`Celular` AS padre_Celular,
+     padre.`Telefono_Oficina` AS padre_Telefono_Oficina,
+     madre.`Telefono_Oficina` AS madre_Telefono_Oficina,
+     madre.`Celular` AS madre_Celular,
+     calcula_valor_mensualidades_letras_estudiante_pagare(PERSONA.Id_Persona,insc_alum_costo.SY_ID_SY)as valorletras,
+     calcula_valor_mensualidades_letras_estudiante(PERSONA.Id_Persona,insc_alum_costo.SY_ID_SY)as valorletras2,
+     calcula_valor_mensualidades_numeros_estudiante(PERSONA.Id_Persona,insc_alum_costo.SY_ID_SY)as valorNumeros,
+     calcula_valor_mensualidades_numeros_estudiante_pagare(PERSONA.Id_Persona,insc_alum_costo.SY_ID_SY)as valorNumerosx10,
+     acudiente.`Tipo_Persona_Id_Tipo_Persona` AS acudiente_Tipo_Persona_Id_Tipo_Persona,
+     padre.`Tipo_Persona_Id_Tipo_Persona` AS padre_Tipo_Persona_Id_Tipo_Persona,
+     madre.`Tipo_Persona_Id_Tipo_Persona` AS madre_Tipo_Persona_Id_Tipo_Persona
+FROM
+     `Tipo_Persona` Tipo_Persona INNER JOIN `PERSONA` PERSONA ON Tipo_Persona.`Id_Tipo_Persona` = PERSONA.`Tipo_Persona_Id_Tipo_Persona`
+     LEFT OUTER JOIN `PERSONA` padre ON PERSONA.`Grupo_Familiar_ID_Grupo_Familiar` = padre.`Grupo_Familiar_ID_Grupo_Familiar`
+     LEFT OUTER JOIN `PERSONA` madre ON PERSONA.`Grupo_Familiar_ID_Grupo_Familiar` = madre.`Grupo_Familiar_ID_Grupo_Familiar`
+     LEFT OUTER JOIN `PERSONA` acudiente ON PERSONA.`Grupo_Familiar_ID_Grupo_Familiar` = acudiente.`Grupo_Familiar_ID_Grupo_Familiar`
+     INNER JOIN `insc_alum_costo` insc_alum_costo ON PERSONA.`Id_Persona` = insc_alum_costo.`Persona_Id_Persona`
+     INNER JOIN `Insc_Alum_Curso` Insc_Alum_Curso ON PERSONA.`Id_Persona` = Insc_Alum_Curso.`Persona_Id_Persona`
+     INNER JOIN `Tipo_Persona` Tipo_Persona_A ON PERSONA.`Tipo_Persona_Id_Tipo_Persona` = Tipo_Persona_A.`Id_Tipo_Persona`
+     INNER JOIN `Curso` Curso ON Insc_Alum_Curso.`Curso_Id_Curso` = Curso.`Id_Curso`
+     INNER JOIN `Grado` Grado ON Curso.`Grado_Id_Grado` = Grado.`Id_Grado`
+     INNER JOIN `costos` costos ON Grado.`Id_Grado` = costos.`Grado_Id_Grado`
+     AND costos.`id_costo` = insc_alum_costo.`costo_Id_costo`
+WHERE
+     PERSONA.`Id_Persona` = $P{idpersona}
+ AND costos.`anual` = 0
+ AND insc_alum_costo.`inscrito` = 1
+ AND PERSONA.Tipo_Persona_Id_Tipo_Persona = 1
+ AND (padre.Tipo_Persona_Id_Tipo_Persona = 2
+  OR padre.Tipo_Persona_Id_Tipo_Persona = 10)
+ AND madre.Tipo_Persona_Id_Tipo_Persona = 12
+ AND acudiente.`Tipo_Persona_Id_Tipo_Persona`= 3
+ AND insc_alum_costo.`SY_Id_SY`= 3
+GROUP BY
+     insc_alum_costo.Id_Insc_Alum_Costo
+ORDER BY
+     PERSONA.`Apellido1` ASC,
+     PERSONA.`Apellido2` ASC,
+     PERSONA.`Nombre1` ASC,
+     PERSONA.`Nombre2` ASC]]>
+	</queryString>
+	<field name="PERSONA_Id_Persona" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERSONA_Apellido1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERSONA_Apellido2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERSONA_Nombre1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERSONA_Nombre2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padre_Id_Persona" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padre_Apellido1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padre_Apellido2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padre_Nombre1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padre_Nombre2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="documento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="direccion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tipo_Persona_Tipo_Persona" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tipo_Persona_Id_Tipo_Persona" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Curso_Curso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Grado_Grado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Grado_Id_Grado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Curso_Id_Curso" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="costos_id_costo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="costos_codigo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="costos_nombre_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="costos_descripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="costos_valor" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="costos_nuevo" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="costos_obligatorio" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="costos_positivo" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="costos_Grado_Id_Grado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="costos_SY_Id_SY" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="costos_anual" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="insc_alum_costo_Id_Insc_Alum_Costo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="insc_alum_costo_Persona_Id_Persona" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="insc_alum_costo_costo_Id_costo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="insc_alum_costo_SY_Id_SY" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="insc_alum_costo_inscrito" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="insc_alum_costo_descuento_porcentaje" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="insc_alum_costo_descuento_valor" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="insc_alum_costo_valor_final_descuento" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="insc_alum_costo_fecha_inicio" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="insc_alum_costo_fecha_fin" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="insc_alum_costo_observacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERSONA_Codigo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tipo_Persona_A_Tipo_Persona" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tipo_Persona_A_Id_Tipo_Persona" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERSONA_Grupo_Familiar_ID_Grupo_Familiar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acudiente_Apellido1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acudiente_Apellido2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acudiente_Nombre2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acudiente_Nombre1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acudiente_Id_Persona" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acudiente_Direccion_Residencia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acudiente_Telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acudiente_No_Documento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acudiente_Telefono_Oficina" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acudiente_Celular" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madre_Apellido1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madre_Apellido2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madre_Nombre2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madre_Nombre1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madre_Id_Persona" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madre_Direccion_Residencia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madre_Telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madre_No_Documento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padre_Celular" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padre_Telefono_Oficina" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madre_Telefono_Oficina" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madre_Celular" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valorletras" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valorletras2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valorNumeros" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valorNumerosx10" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acudiente_Tipo_Persona_Id_Tipo_Persona" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padre_Tipo_Persona_Id_Tipo_Persona" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madre_Tipo_Persona_Id_Tipo_Persona" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="costos_valor_1" class="java.lang.Double" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{costos_valor}]]></variableExpression>
+	</variable>
+	<variable name="insc_alum_costo_valor_final_descuento_3" class="java.lang.Integer" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{insc_alum_costo_valor_final_descuento}]]></variableExpression>
+	</variable>
+	<variable name="formateador" class="java.text.NumberFormat">
+		<variableExpression><![CDATA[NumberFormat.getCurrencyInstance()]]></variableExpression>
+	</variable>
+	<group name="idPersona" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{insc_alum_costo_Persona_Id_Persona}]]></groupExpression>
+		<groupFooter>
+			<band height="625">
+				<line>
+					<reportElement x="0" y="368" width="217" height="1"/>
+				</line>
+				<line>
+					<reportElement x="0" y="461" width="220" height="1"/>
+				</line>
+				<staticText>
+					<reportElement x="0" y="369" width="86" height="13"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Deudor (Padre)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="462" width="86" height="13"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Deudor (Madre)]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="0" width="483" height="346"/>
+					<textElement textAlignment="Justified" verticalAlignment="Top">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["VALOR: "+$F{valorletras}+" ("+$V{formateador}.format($F{valorNumerosx10})+")."
++"\n\n"+
+"Nosotros, "+$F{padre_Nombre1}+" "+$F{padre_Nombre2}+" "+$F{padre_Apellido1}+" "+$F{padre_Apellido2}+" y "+$F{madre_Nombre1}+" "+$F{madre_Nombre2}+" "+$F{madre_Apellido1}+" "+$F{madre_Apellido2}+" mayores de edad, identificados como aparece al pie de nuestras firmas, por medio del presente instrumento expresante declaramos que debemos y pagaremos a la FUNDACIÓN EDUCATIVA ROCHESTER, Nit. 900.509.589-7, la suma de "+$F{valorletras}+" ("+$V{formateador}.format($F{valorNumerosx10})+") de acuerdo con lo pactado en el Contrato de Servicios Educativos correspondiente al estudiante "+$F{PERSONA_Nombre1}+" "+$F{PERSONA_Nombre2}+" "+$F{PERSONA_Apellido1}+" "+$F{PERSONA_Apellido2}+", Grado "+$F{Grado_Grado}+" con el COLEGIO ROCHESTER, más el valor de los servicios elegidos que se pagan con la pensión, tales como almuerzo, medias nueves y transporte escolar, durante el año escolar 2012-2013."
++"\n\n"+
+"Así mismo, nos obligamos a pagar en forma incondicional y solidaria a la FUNDACIÓN EDUCATIVA ROCHESTER la suma estipulada de la siguiente manera: "
++"\n\n"+
+"PRIMERO:  El valor de "+$F{valorletras} +" ("+$V{formateador}.format($F{valorNumerosx10})+") se  pagará en 10 cuotas mensuales y sucesivas, cada una por valor de "+$F{valorletras2}+" ("+ $V{formateador}.format($F{valorNumeros}) +") durante los meses de septiembre, octubre, noviembre, diciembre de 2012 y enero, febrero, marzo, abril, mayo y junio de 2013. TERCERO. - Las cuotas se pagarán dentro de los primeros diez (10) días calendario de cada mes. CUARTO. - Renunciamos expresamente a los requerimientos para constituirnos en mora. QUINTO. - En caso de atraso parcial del pago, nos obligamos a pagar intereses equivalentes al 1,2% mensual sobre el saldo debido. En caso de mora total,  nos obligamos a pagar intereses a la tasa máxima legal autorizada. En caso de cobro extrajudicial, prejudicial o judicial serán de nuestro cargo los gastos y costos de la cobranza y los honorarios de abogado. SEXTO. - Aceptamos desde ahora, cualquier cesión o endoso que de este documento hiciere LA FUNDACIÓN EDUCATIVA ROCHESTER a cualquier otra persona. "
++"\n\n"+
+"En constancia se suscribe en la ciudad de Bogotá a los______ días del mes de____________________ del año_____________. "]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="86" y="369" width="217" height="13"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["NOMBRE: "+$F{padre_Nombre1}+" "+$F{padre_Nombre2}+" "+$F{padre_Apellido1}+" "+$F{padre_Apellido2}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="86" y="462" width="217" height="13"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["NOMBRE: "+$F{madre_Nombre1}+" "+$F{madre_Nombre2}+" "+$F{madre_Apellido1}+" "+$F{madre_Apellido2}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="306" y="369" width="177" height="13"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["C.C. No: "+$F{documento}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="382" width="217" height="13"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["Dirección: "+$F{direccion}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="395" width="217" height="13"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA["Teléfono residencia: "+$F{telefono}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="408" width="217" height="13"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA["Teléfono oficina: "+$F{padre_Telefono_Oficina}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="46" y="422" width="171" height="13"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[($F{padre_Celular} == null) ? $F{padre_Celular} : " "]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="475" width="220" height="13"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["Dirección: "+$F{madre_Direccion_Residencia}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="44" y="515" width="176" height="13"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[($F{madre_Celular} == null) ? $F{madre_Celular} : " "]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="488" width="220" height="13"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA["Teléfono residencia: "+$F{madre_Telefono}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="306" y="462" width="177" height="13"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["C.C. No: "+$F{madre_No_Documento}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="501" width="220" height="13"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA["Teléfono oficina: "+$F{madre_Telefono_Oficina}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="422" width="41" height="13"/>
+					<textElement/>
+					<text><![CDATA[Celular:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="515" width="41" height="13"/>
+					<textElement/>
+					<text><![CDATA[Celular:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="47" y="611" width="259" height="13"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[($F{acudiente_Celular} == null) ? $F{acudiente_Celular} : " "]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="3" y="557" width="220" height="1"/>
+				</line>
+				<textField isBlankWhenNull="true">
+					<reportElement x="3" y="597" width="303" height="13"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA["Teléfono oficina: "+$F{acudiente_Telefono_Oficina}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="309" y="558" width="177" height="13"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["C.C. No: "+$F{acudiente_No_Documento}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="3" y="571" width="303" height="13"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["Dirección: "+$F{acudiente_Direccion_Residencia}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="3" y="558" width="105" height="13"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Deudor (Acudiente)]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="3" y="584" width="303" height="13"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA["Teléfono residencia: "+$F{acudiente_Telefono}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="111" y="558" width="195" height="13"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["NOMBRE: "+$F{acudiente_Nombre1}+" "+$F{acudiente_Nombre2}+" "+$F{acudiente_Apellido1}+" "+$F{acudiente_Apellido2}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="3" y="611" width="41" height="13"/>
+					<textElement/>
+					<text><![CDATA[Celular:]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="483" height="19"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PAGARÉ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+</jasperReport>

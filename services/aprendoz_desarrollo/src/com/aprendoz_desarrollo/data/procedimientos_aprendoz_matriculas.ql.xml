@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- 
+
+@design.default-queries: Marks this file as default file for user queries.
+
+-->
+
+<hibernate-mapping>
+<!-- 
+
+Insercion de un estudiante en MATRICULAS
+
+-->
+    <sql-query
+    	name = "InsertaMatriculaEstudiante"
+    	callable = "true"
+    	comment = "Llamada al procedimiento de Aprendoz_Desarrollo #######">
+    	<!-- parametros que contiene el Store Procedure-->
+    	<query-param name="M_Id_Persona" type="java.lang.Integer"/>
+    	<query-param name="M_Id_Curso" type="java.lang.Integer"/>
+        <query-param name="M_Id_Sy" type="java.lang.Integer"/>
+        <query-param name="M_Co" type="java.lang.String"/>
+
+    	<![CDATA[
+            { call inserta_matricula_estudiante(:M_Id_Persona, :M_Id_Curso, :M_Id_Sy, :M_Co)}
+    	]]>
+    </sql-query>	
+	
+
+</hibernate-mapping>
+

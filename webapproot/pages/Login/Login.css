@@ -1,0 +1,23 @@
+/*
+ * Esquema de colores>
+ *                      Color 1: #180a73  -- Azul Oscuro
+ *                      Color 2: #251973  -- Morado Oscuro
+ *                      Color 3: #726aa6  -- Azul hummm
+ *                      Color 4: #a61c1c  -- Rojo Logo Rochester
+ *                      Color 5: #f2f2f2  -- Blanco Logo
+ */
+
+.Login .Login-loginErrorMsg {
+  font-size: 12px; color: red
+}
+.Login .Login-loginButton {
+	  cursor: pointer;
+	background-color: #c4161d !important;
+border-radius: 4px;
+}
+.Login .Login-layoutBox {
+	background-image: url(http://aprendoz.rochester.edu.co/recursos/login_back_mat.jpg);
+	background-repeat: no-repeat;
+background-size: cover;
+}
+

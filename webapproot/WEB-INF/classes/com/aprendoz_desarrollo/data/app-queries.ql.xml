@@ -1,0 +1,40 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <meta attribute="@design.default-queries"/>
+    <query name="getUserData">
+        <query-param name="user" type="java.lang.String"/>
+        SELECT
+p.idPersona AS idpersona,
+p.nombre1 AS nombre1,
+p.nombre2 AS nombre2,
+p.apellido1 AS apellido1,
+p.apellido2 AS apellido2,
+p.nombreLdap AS usuario,
+p.clave AS clave,
+p.sexo AS sexo,
+tipo.tipoPersona AS tipoPersona,
+tipo.idTipoPersona as idtipo
+FROM Persona AS p
+INNER JOIN p.tipoPersona AS tipo
+WHERE p.nombreLdap=:user
+    </query>
+    <query name="showInformationUser">
+        <query-param name="user" type="java.lang.String"/>
+        SELECT
+p.tipoDocumento AS tipoDocumento,
+p.noDocumento AS numeroDocumento,
+p.idPersona AS idpersona,
+p.nombre1 AS nombre1,
+p.nombre2 AS nombre2,
+p.apellido1 AS apellido1,
+p.apellido2 AS apellido2,
+p.nombreLdap AS usuario,
+p.clave AS clave,
+p.sexo AS sexo,
+tipo.tipoPersona AS tipoPersona,
+tipo.idTipoPersona as idtipo
+FROM Persona AS p
+INNER JOIN p.tipoPersona AS tipo
+WHERE p.nombreLdap=:user
+    </query>
+</hibernate-mapping>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="JSCreaMatricula.spring.xml" type="JavaService" CRUDService="false" class="JSCreaMatricula" id="JSCreaMatricula">
+    <operation name="proced_insertar_matricula_estd">
+        <parameter isList="false" typeRef="java.lang.String" name="coment"/>
+        <parameter isList="false" typeRef="java.lang.Integer" name="Pr_Id_Persona"/>
+        <parameter isList="false" typeRef="java.lang.Integer" name="Pr_Id_Curso"/>
+        <parameter isList="false" typeRef="java.lang.Integer" name="Pr_Id_Sy"/>
+        <return isList="false" typeRef="java.lang.Integer"/>
+    </operation>
+    <dataobjects/>
+</service>

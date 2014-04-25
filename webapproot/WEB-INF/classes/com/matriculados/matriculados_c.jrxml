@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="matriculados_c" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f5a85a2f-1c2a-4c12-aa82-529e6bbd5cbd">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="sy" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT
+     Nivel.`Nivel`,
+     Grado.`Grado`,
+     Curso.`Curso`,
+     PERSONA.`Codigo`,
+     PERSONA.`Apellido1`,
+     PERSONA.`Apellido2`,
+     PERSONA.`Nombre1`,
+     PERSONA.`Nombre2`,
+     Insc_Alum_Curso.`SY_Id_SY` AS Insc_Alum_Curso_SY_Id_SY,
+     SY.`School_year` AS SY_School_year,
+     SY.`Id_SY` AS SY_Id_SY,
+     PERSONA.`Id_Persona` AS PERSONA_Id_Persona,
+     Curso.`Id_Curso` AS Curso_Id_Curso,
+     Curso.`Grado_Id_Grado` AS Curso_Grado_Id_Grado,
+     Grado.`Id_Grado` AS Grado_Id_Grado
+FROM
+     `Curso` Curso INNER JOIN `Insc_Alum_Curso` Insc_Alum_Curso ON Curso.`Id_Curso` = Insc_Alum_Curso.`Curso_Id_Curso`
+     INNER JOIN `PERSONA` PERSONA ON Insc_Alum_Curso.`Persona_Id_Persona` = PERSONA.`Id_Persona`
+     INNER JOIN `SY` SY ON Insc_Alum_Curso.`SY_Id_SY` = SY.`Id_SY`
+     INNER JOIN `Grado` Grado ON Curso.`Grado_Id_Grado` = Grado.`Id_Grado`
+     INNER JOIN `Nivel` Nivel ON Grado.`Nivel_Id_Nivel` = Nivel.`Id_Nivel`
+WHERE
+     Curso.Id_Curso >= 10101
+     and Curso.Id_Curso <= 40403
+     and SY_Id_SY = $P{sy}
+     and PERSONA.matriculado = 1
+     and PERSONA.Activo_Retirado = 1
+ORDER BY
+     Nivel.Id_Nivel ASC,
+     Grado.Id_Grado ASC,
+     Curso.Id_Curso ASC,
+     PERSONA.Apellido1 ASC,
+     PERSONA.Apellido2 ASC,
+     PERSONA.Nombre1 ASC,
+     PERSONA.Nombre2 ASC]]>
+	</queryString>
+	<field name="Nivel" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Grado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Curso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Codigo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Apellido1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Apellido2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nombre1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nombre2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Insc_Alum_Curso_SY_Id_SY" class="java.lang.Integer"/>
+	<field name="SY_School_year" class="java.lang.String"/>
+	<field name="SY_Id_SY" class="java.lang.Integer"/>
+	<field name="PERSONA_Id_Persona" class="java.lang.Integer"/>
+	<field name="Curso_Id_Curso" class="java.lang.Integer"/>
+	<field name="Curso_Grado_Id_Grado" class="java.lang.Integer"/>
+	<field name="Grado_Id_Grado" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<summary>
+		<band height="802" splitType="Stretch">
+			<textField>
+				<reportElement uuid="5be11ad2-8e68-46f8-8530-de85f1bf2c62" x="161" y="53" width="266" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Proceso Matrículas "+$F{SY_School_year}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="54b264ed-0f80-4785-b258-5d60a6b5348d" x="113" y="33" width="376" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL ESTUDIANTES MATRÍCULADOS POR GRADO]]></text>
+			</staticText>
+			<crosstab>
+				<reportElement uuid="06b86b90-44b1-446f-a864-bbf3cf1273b6" x="87" y="73" width="402" height="621"/>
+				<rowGroup name="Grado" width="135" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{Grado_Id_Grado}+" "+$F{Grado}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement uuid="2d4e6831-222f-4802-870b-509cc57f08c5" style="Crosstab Data Text" x="0" y="0" width="135" height="25"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$V{Grado}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents backcolor="#BFE1FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement uuid="44483f50-c6ce-4146-9319-21454a1c4399" x="0" y="0" width="135" height="25"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Total Grado]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="SY_School_year" height="30" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{SY_School_year}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement uuid="a29bef32-ad39-4041-bd98-d3d14c4eed56" style="Crosstab Data Text" x="0" y="0" width="84" height="30"/>
+								<textElement verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{SY_School_year}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents backcolor="#BFE1FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement uuid="3bca51b4-b103-4c64-a7b3-cb180d46cda6" x="0" y="0" width="95" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Total]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="PERSONA_Id_PersonaMeasure" class="java.lang.Integer" calculation="Count">
+					<measureExpression><![CDATA[$F{PERSONA_Id_Persona}]]></measureExpression>
+				</measure>
+				<crosstabCell width="84" height="25">
+					<cellContents>
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement uuid="a5173283-14f8-4f4f-9d13-6a6e7058620a" style="Crosstab Data Text" x="0" y="0" width="84" height="25"/>
+							<textElement/>
+							<textFieldExpression><![CDATA[$V{PERSONA_Id_PersonaMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="84" height="25" rowTotalGroup="Grado">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement uuid="026c36f4-4568-4a7e-b8da-9d22e8ad8301" style="Crosstab Data Text" x="0" y="0" width="84" height="25"/>
+							<textElement verticalAlignment="Middle">
+								<font isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{PERSONA_Id_PersonaMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="95" columnTotalGroup="SY_School_year">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement uuid="9566a3e4-cff2-4a18-8d3e-0a1391bd5f72" style="Crosstab Data Text" x="0" y="0" width="95" height="25"/>
+							<textElement/>
+							<textFieldExpression><![CDATA[$V{PERSONA_Id_PersonaMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="95" rowTotalGroup="Grado" columnTotalGroup="SY_School_year">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement uuid="4f3bce93-1ca0-4bd6-a5ac-285b48504530" style="Crosstab Data Text" x="0" y="0" width="95" height="25"/>
+							<textElement verticalAlignment="Middle">
+								<font isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{PERSONA_Id_PersonaMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+			<image>
+				<reportElement uuid="8312e37b-cfde-4cb2-8225-2f59f68f885e" x="10" y="33" width="77" height="37"/>
+				<imageExpression><![CDATA["logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</summary>
+</jasperReport>
