@@ -19,7 +19,8 @@
 }
 
 .Main .Main-busqueda_inscpersonagrupofamiliarDataGrid1 {
-  cursor: pointer;
+	  cursor: pointer;
+	font-size: 11px;
 }
 
 .Main .Main-inscalumcostoDataGrid1 {
@@ -27,22 +28,16 @@
 }
 
 .Main .Main-busqueda_buscar {
-   background: #4D90FE;
-    background-image: -moz-linear-gradient(center top , #4D90FE, #4D90FE);
-  color: #FFFFFF;
-  text-shadow: 0 1px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
+	background: #c4161d;
+	background-image: -moz-linear-gradient(center top , #4D90FE, #4D90FE);
+color: #FFFFFF;
+cursor: pointer;
 }
 
 .Main .Main-busqueda_limpiar {
-  background: #E0E0E0;
-    background-image: -moz-linear-gradient(center top , #E0E0E0, #E0E0E0);
-  background-image: -webkit-linear-gradient(center top , #E0E0E0, #E0E0E0);
-  background-image: -moz-linear-gradient(center top , #E0E0E0, #E0E0E0);
-  background-image: -o-linear-gradient(center top , #E0E0E0, #E0E0E0);
-  color: #000000;
-  text-shadow: 0 1px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
+	background: #3652a4;
+	color: #fff;
+cursor: pointer;
 }
 
 .Main .Main-busqueda_mostrar {
@@ -310,5 +305,20 @@ box-shadow: 0 1px 4px rgba(0,0,0,0.065);
   -ms-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
   -o-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
   box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+.Main .Main-pict_panel {
+	background-color: #FAFAFA;
+}
+
+.Main .Main-tiny_pic {
+	border-radius: 50% 50%;
+	height: 129px !important;
+}
+
+.Main .Main-label_estudiante_seleccionado {
+	background: #3652a4;
+	color: #fff;
+cursor: pointer;
 }
 
