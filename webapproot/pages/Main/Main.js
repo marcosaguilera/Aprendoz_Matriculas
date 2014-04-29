@@ -234,7 +234,7 @@ dojo.declare("Main", wm.Page, {
         httpMethod: "POST",
         data:{ idp: id, 
                pass: clave,
-               uri: "/aprendozreports/MAT008",
+               uri: "/aprendozreports/MAT023NEW",
                format: formatType,
                params: {idpersona: _persona}
          }
