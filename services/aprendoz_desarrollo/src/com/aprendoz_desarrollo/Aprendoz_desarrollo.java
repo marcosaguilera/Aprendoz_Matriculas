@@ -16,7 +16,7 @@ import com.wavemaker.runtime.service.TypedServiceReturn;
 
 /**
  *  Operations for service "aprendoz_desarrollo"
- *  05/06/2013 15:51:10
+ *  05/05/2014 07:33:03
  * 
  */
 @SuppressWarnings("unchecked")
@@ -27,21 +27,21 @@ public class Aprendoz_desarrollo
     private DataServiceManager dsMgr;
     private TaskManager taskMgr;
 
+    public com.aprendoz_desarrollo.data.TipoCosto getTipoCostoById(Integer id) {
+        List<com.aprendoz_desarrollo.data.TipoCosto> rtn = ((List<com.aprendoz_desarrollo.data.TipoCosto> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.getTipoCostoByIdQueryName), id));
+        if (rtn.isEmpty()) {
+            return null;
+        } else {
+            return rtn.get(0);
+        }
+    }
+
     public List<GetUserDataRtnType> getUserData(String user) {
         return ((List<GetUserDataRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.getUserDataQueryName), user));
     }
 
     public List<ShowInformationUserRtnType> showInformationUser(String user) {
         return ((List<ShowInformationUserRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.showInformationUserQueryName), user));
-    }
-
-    public com.aprendoz_desarrollo.data.Formulario5a getFormulario5aById(Integer id) {
-        List<com.aprendoz_desarrollo.data.Formulario5a> rtn = ((List<com.aprendoz_desarrollo.data.Formulario5a> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.getFormulario5aByIdQueryName), id));
-        if (rtn.isEmpty()) {
-            return null;
-        } else {
-            return rtn.get(0);
-        }
     }
 
     public Object insert(Object o) {

@@ -59,5 +59,11 @@
             </key>
             <one-to-many class="com.aprendoz_desarrollo.data.Coordinacion"/>
         </set>
+        <set name="inscCoordinadoresCursos" inverse="true">
+            <key>
+                <column name="curso_id_curso" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscCoordinadoresCurso"/>
+        </set>
     </class>
 </hibernate-mapping>

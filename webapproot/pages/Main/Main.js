@@ -5,6 +5,7 @@ dojo.declare("Main", wm.Page, {
   a_sySuccess: function(inSender, inDeprecated) {
       this.busqueda_sel_sy.setDataValue(4+1);
       this.costos_sel_sy.setDataValue(4+1);
+      this.promocion_sy.setDataValue(4);
   },
   busqueda_inscpersonagrupofamiliarDataGrid1Selected: function(inSender, inIndex) {
       var codigo= this.busqueda_inscpersonagrupofamiliarDataGrid1.selectedItem.getData().persona.codigo;
@@ -142,9 +143,73 @@ dojo.declare("Main", wm.Page, {
   },
   inscalumcostoLiveForm1InsertData: function(inSender) {
       this.matriculas_box_valorProducto.disable();
+      //something to-do here when updateData
+      var username= main.getUserName.getData().dataValue;
+      var now= new Date().getTime();
+     // var codigo_costo= main.inscalumcostoDataGrid1.selectedItem.getData().costos.idCosto;
+      var codigo_persona= main.busqueda_inscpersonagrupofamiliarDataGrid1.selectedItem.getData().persona.idPersona;
+      var inscrito= this.inscritoEditor1.getDataValue();
+      var nombrecosto= this.matriculas_box_nombreProducto.getDataValue();
+      var valor =this.matriculas_box_valorProducto.getDataValue();
+      var porcdto= this.descuentoPorcentajeEditor1.getDataValue();
+      var dtovalor= this.descuentoValorEditor1.getDataValue();
+      var valorFinalDto= this.valorFinalDescuentoEditor1.getDataValue();
+      var detalles= "[costo->"+nombrecosto+" ->inscrito->"+inscrito+" ->valor->"+valor+" ->%dto->"+porcdto+" ->dtovalor->"+dtovalor+" ->valor final->"+valorFinalDto+"]";
+      console.log(detalles);
+      var data= "accion: insertar -> idpersona: "+codigo_persona+" -> Detalles: ["+detalles+"]";
+          this.log_insertaAcciones.setValue("usuario", username);
+          this.log_insertaAcciones.setValue("accionRealizada", data);
+          this.log_insertaAcciones.setValue("tablaAfectada", "insc_alumn_costo");
+          this.log_insertaAcciones.setValue("fechaCreacion", now);
+          this.log_insertaAcciones.setValue("fechaModificacion", now);
+          this.insertaAccionesUsuarios.setDataSet(this.log_insertaAcciones); 
+          this.insertaAccionesUsuarios.insertData();
   },
   inscalumcostoLiveForm1UpdateData: function(inSender) {
       this.matriculas_box_valorProducto.disable();
+      //something to-do here when updateData
+      var username= main.getUserName.getData().dataValue;
+      var now= new Date().getTime();
+      var codigo_persona= main.busqueda_inscpersonagrupofamiliarDataGrid1.selectedItem.getData().persona.idPersona;
+      var inscrito= this.inscritoEditor1.getDataValue();
+      var nombrecosto= this.matriculas_box_nombreProducto.getDataValue();
+      var valor =this.matriculas_box_valorProducto.getDataValue();
+      var porcdto= this.descuentoPorcentajeEditor1.getDataValue();
+      var dtovalor= this.descuentoValorEditor1.getDataValue();
+      var valorFinalDto= this.valorFinalDescuentoEditor1.getDataValue();
+      var detalles= "[costo->"+nombrecosto+" ->inscrito->"+inscrito+" ->valor->"+valor+" ->%dto->"+porcdto+" ->dtovalor->"+dtovalor+" ->valor final->"+valorFinalDto+"]";
+      console.log(detalles);
+      var data= "accion: actualizar -> idpersona: "+codigo_persona+" -> Detalles: ["+detalles+"]";
+          this.log_insertaAcciones.setValue("usuario", username);
+          this.log_insertaAcciones.setValue("accionRealizada", data);
+          this.log_insertaAcciones.setValue("tablaAfectada", "insc_alumn_costo");
+          this.log_insertaAcciones.setValue("fechaCreacion", now);
+          this.log_insertaAcciones.setValue("fechaModificacion", now);
+          this.insertaAccionesUsuarios.setDataSet(this.log_insertaAcciones); 
+          this.insertaAccionesUsuarios.insertData();
+  },
+  inscalumcostoLiveForm1DeleteData: function(inSender) {
+      this.matriculas_box_valorProducto.disable();
+      //something to-do here when updateData
+      var username= main.getUserName.getData().dataValue;
+      var now= new Date().getTime();
+      var codigo_persona= main.busqueda_inscpersonagrupofamiliarDataGrid1.selectedItem.getData().persona.idPersona;
+      var inscrito= this.inscritoEditor1.getDataValue();
+      var nombrecosto= this.matriculas_box_nombreProducto.getDataValue();
+      var valor =this.matriculas_box_valorProducto.getDataValue();
+      var porcdto= this.descuentoPorcentajeEditor1.getDataValue();
+      var dtovalor= this.descuentoValorEditor1.getDataValue();
+      var valorFinalDto= this.valorFinalDescuentoEditor1.getDataValue();
+      var detalles= "[costo->"+nombrecosto+" ->inscrito->"+inscrito+" ->valor->"+valor+" ->%dto->"+porcdto+" ->dtovalor->"+dtovalor+" ->valor final->"+valorFinalDto+"]";
+      console.log(detalles);
+      var data= "accion: borrar -> idpersona: "+codigo_persona+" -> Detalles: ["+detalles+"]";
+          this.log_insertaAcciones.setValue("usuario", username);
+          this.log_insertaAcciones.setValue("accionRealizada", data);
+          this.log_insertaAcciones.setValue("tablaAfectada", "insc_alumn_costo");
+          this.log_insertaAcciones.setValue("fechaCreacion", now);
+          this.log_insertaAcciones.setValue("fechaModificacion", now);
+          this.insertaAccionesUsuarios.setDataSet(this.log_insertaAcciones); 
+          this.insertaAccionesUsuarios.insertData();
   },
   /**INICIO BUSCAR RAPIDO**/
   busqueda_buscarClick: function(inSender, inEvent) {
@@ -295,6 +360,18 @@ dojo.declare("Main", wm.Page, {
   },
   JSMatriculaSuccess: function(inSender, inDeprecated) {
       app.pageDialog.showPage("Mensaje_right", false, 500,150);
+      var username= main.getUserName.getData().dataValue;
+      var now= new Date().getTime();
+     // var codigo_costo= main.inscalumcostoDataGrid1.selectedItem.getData().costos.idCosto;
+      var codigo_persona= main.busqueda_inscpersonagrupofamiliarDataGrid1.selectedItem.getData().persona.idPersona;
+      var data= "accion: matricular -> idpersona: "+codigo_persona;
+          this.log_insertaAcciones.setValue("usuario", username);
+          this.log_insertaAcciones.setValue("accionRealizada", data);
+          this.log_insertaAcciones.setValue("tablaAfectada", "insc_alumn_curso / matricula");
+          this.log_insertaAcciones.setValue("fechaCreacion", now);
+          this.log_insertaAcciones.setValue("fechaModificacion", now);
+          this.insertaAccionesUsuarios.setDataSet(this.log_insertaAcciones); 
+          this.insertaAccionesUsuarios.insertData();
   },
   costos_butt_limpiarClick: function(inSender, inEvent) {
       this.costos_sel_grado.clear();
@@ -400,5 +477,6 @@ dojo.declare("Main", wm.Page, {
       alert("Asegurese de seleccionar un Estudiante de la tabla Grupo Familiar antes de continuar.");
     }  
   },
+ 
   _end: 0
 });

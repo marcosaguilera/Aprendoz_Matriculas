@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  *  aprendoz_desarrollo.Curso
- *  05/06/2013 15:48:46
+ *  04/30/2014 15:36:22
  * 
  */
 public class Curso {
@@ -23,6 +23,7 @@ public class Curso {
     private Set<com.aprendoz_desarrollo.data.Sesion> sesions = new HashSet<com.aprendoz_desarrollo.data.Sesion>();
     private Set<com.aprendoz_desarrollo.data.Matricula> matriculas = new HashSet<com.aprendoz_desarrollo.data.Matricula>();
     private Set<com.aprendoz_desarrollo.data.Coordinacion> coordinacions = new HashSet<com.aprendoz_desarrollo.data.Coordinacion>();
+    private Set<com.aprendoz_desarrollo.data.InscCoordinadoresCurso> inscCoordinadoresCursos = new HashSet<com.aprendoz_desarrollo.data.InscCoordinadoresCurso>();
 
     public Curso() {
     }
@@ -32,7 +33,7 @@ public class Curso {
         this.curso = curso;
     }
 
-    public Curso(Integer idCurso, Grado grado, String curso, Set<com.aprendoz_desarrollo.data.InscCursoAsig> inscCursoAsigs, Set<com.aprendoz_desarrollo.data.Horario> horarios, Set<com.aprendoz_desarrollo.data.CoordinacionDeGrupo> coordinacionDeGrupos, Set<com.aprendoz_desarrollo.data.Coordinadores> coordinadoreses, Set<com.aprendoz_desarrollo.data.InscAlumCurso> inscAlumCursos, Set<com.aprendoz_desarrollo.data.Sesion> sesions, Set<com.aprendoz_desarrollo.data.Matricula> matriculas, Set<com.aprendoz_desarrollo.data.Coordinacion> coordinacions) {
+    public Curso(Integer idCurso, Grado grado, String curso, Set<com.aprendoz_desarrollo.data.InscCursoAsig> inscCursoAsigs, Set<com.aprendoz_desarrollo.data.Horario> horarios, Set<com.aprendoz_desarrollo.data.CoordinacionDeGrupo> coordinacionDeGrupos, Set<com.aprendoz_desarrollo.data.Coordinadores> coordinadoreses, Set<com.aprendoz_desarrollo.data.InscAlumCurso> inscAlumCursos, Set<com.aprendoz_desarrollo.data.Sesion> sesions, Set<com.aprendoz_desarrollo.data.Matricula> matriculas, Set<com.aprendoz_desarrollo.data.Coordinacion> coordinacions, Set<com.aprendoz_desarrollo.data.InscCoordinadoresCurso> inscCoordinadoresCursos) {
         this.idCurso = idCurso;
         this.grado = grado;
         this.curso = curso;
@@ -44,6 +45,7 @@ public class Curso {
         this.sesions = sesions;
         this.matriculas = matriculas;
         this.coordinacions = coordinacions;
+        this.inscCoordinadoresCursos = inscCoordinadoresCursos;
     }
 
     public Integer getIdCurso() {
@@ -132,6 +134,14 @@ public class Curso {
 
     public void setCoordinacions(Set<com.aprendoz_desarrollo.data.Coordinacion> coordinacions) {
         this.coordinacions = coordinacions;
+    }
+
+    public Set<com.aprendoz_desarrollo.data.InscCoordinadoresCurso> getInscCoordinadoresCursos() {
+        return inscCoordinadoresCursos;
+    }
+
+    public void setInscCoordinadoresCursos(Set<com.aprendoz_desarrollo.data.InscCoordinadoresCurso> inscCoordinadoresCursos) {
+        this.inscCoordinadoresCursos = inscCoordinadoresCursos;
     }
 
 }
