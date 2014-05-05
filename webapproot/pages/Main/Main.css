@@ -288,3 +288,10 @@ background-color: #C53727;
 cursor: pointer;
 }
 
+.Main .Main-promocion_buscar {
+	  background: #c4161d;
+	  background-image: -moz-linear-gradient(center top , #4D90FE, #4D90FE);
+color: #FFFFFF;
+cursor: pointer;
+}
+

@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  *  aprendoz_desarrollo.GrupoFamiliar
- *  05/06/2013 15:48:46
+ *  04/30/2014 15:36:22
  * 
  */
 public class GrupoFamiliar {
@@ -15,7 +15,7 @@ public class GrupoFamiliar {
     private Integer idGrupoFamiliar;
     private String grupoFamiliar;
     private String grupoLdap;
-    private Set<com.aprendoz_desarrollo.data.Rutas> rutases = new HashSet<com.aprendoz_desarrollo.data.Rutas>();
+    private Set<com.aprendoz_desarrollo.data.TransporteRutas> transporteRutases = new HashSet<com.aprendoz_desarrollo.data.TransporteRutas>();
     private Set<com.aprendoz_desarrollo.data.Persona> personas = new HashSet<com.aprendoz_desarrollo.data.Persona>();
     private Set<com.aprendoz_desarrollo.data.InscPersonaGrupoFamiliar> inscPersonaGrupoFamiliars = new HashSet<com.aprendoz_desarrollo.data.InscPersonaGrupoFamiliar>();
     private Set<com.aprendoz_desarrollo.data.ActualizacionGrupoFamiliar> actualizacionGrupoFamiliars = new HashSet<com.aprendoz_desarrollo.data.ActualizacionGrupoFamiliar>();
@@ -29,11 +29,11 @@ public class GrupoFamiliar {
         this.grupoLdap = grupoLdap;
     }
 
-    public GrupoFamiliar(Integer idGrupoFamiliar, String grupoFamiliar, String grupoLdap, Set<com.aprendoz_desarrollo.data.Rutas> rutases, Set<com.aprendoz_desarrollo.data.Persona> personas, Set<com.aprendoz_desarrollo.data.InscPersonaGrupoFamiliar> inscPersonaGrupoFamiliars, Set<com.aprendoz_desarrollo.data.ActualizacionGrupoFamiliar> actualizacionGrupoFamiliars) {
+    public GrupoFamiliar(Integer idGrupoFamiliar, String grupoFamiliar, String grupoLdap, Set<com.aprendoz_desarrollo.data.TransporteRutas> transporteRutases, Set<com.aprendoz_desarrollo.data.Persona> personas, Set<com.aprendoz_desarrollo.data.InscPersonaGrupoFamiliar> inscPersonaGrupoFamiliars, Set<com.aprendoz_desarrollo.data.ActualizacionGrupoFamiliar> actualizacionGrupoFamiliars) {
         this.idGrupoFamiliar = idGrupoFamiliar;
         this.grupoFamiliar = grupoFamiliar;
         this.grupoLdap = grupoLdap;
-        this.rutases = rutases;
+        this.transporteRutases = transporteRutases;
         this.personas = personas;
         this.inscPersonaGrupoFamiliars = inscPersonaGrupoFamiliars;
         this.actualizacionGrupoFamiliars = actualizacionGrupoFamiliars;
@@ -63,12 +63,12 @@ public class GrupoFamiliar {
         this.grupoLdap = grupoLdap;
     }
 
-    public Set<com.aprendoz_desarrollo.data.Rutas> getRutases() {
-        return rutases;
+    public Set<com.aprendoz_desarrollo.data.TransporteRutas> getTransporteRutases() {
+        return transporteRutases;
     }
 
-    public void setRutases(Set<com.aprendoz_desarrollo.data.Rutas> rutases) {
-        this.rutases = rutases;
+    public void setTransporteRutases(Set<com.aprendoz_desarrollo.data.TransporteRutas> transporteRutases) {
+        this.transporteRutases = transporteRutases;
     }
 
     public Set<com.aprendoz_desarrollo.data.Persona> getPersonas() {

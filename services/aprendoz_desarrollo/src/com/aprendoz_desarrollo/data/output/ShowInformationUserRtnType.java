@@ -4,7 +4,7 @@ package com.aprendoz_desarrollo.data.output;
 
 
 /**
- * Generated for query "showInformationUser" on 05/06/2013 15:48:54
+ * Generated for query "showInformationUser" on 04/30/2014 15:36:36
  * 
  */
 public class ShowInformationUserRtnType {

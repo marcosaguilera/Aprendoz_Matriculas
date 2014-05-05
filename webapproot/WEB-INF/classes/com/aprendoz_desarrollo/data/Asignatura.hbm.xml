@@ -33,13 +33,13 @@
             <column name="Id_Subarea3"/>
         </property>
         <property name="salonIdSalon" type="integer">
-            <column name="Salon_Id_Salon" not-null="true"/>
+            <column name="Salon_Id_Salon"/>
         </property>
         <property name="intensidadHoraria" type="float">
             <column name="intensidad_horaria" precision="4"/>
         </property>
         <property name="peso" type="float">
-            <column name="peso" precision="3"/>
+            <column name="peso" precision="4"/>
         </property>
         <property name="descripAsigEspaniol" type="string">
             <column name="descrip_asig_espaniol" length="65535"/>
@@ -59,11 +59,14 @@
         <property name="meses" type="float">
             <column name="meses" precision="12"/>
         </property>
+        <property name="esperadostotal" type="integer">
+            <column name="esperadostotal"/>
+        </property>
         <many-to-one name="grado" class="com.aprendoz_desarrollo.data.Grado" cascade="none">
             <column name="Grado_Id_Grado" not-null="true"/>
         </many-to-one>
         <many-to-one name="tipoInscAsig" class="com.aprendoz_desarrollo.data.TipoInscAsig" cascade="none">
-            <column name="Tipo_Insc_Asig_Id_Tipo_Insc_Asig" not-null="true"/>
+            <column name="Tipo_Insc_Asig_Id_Tipo_Insc_Asig"/>
         </many-to-one>
         <many-to-one name="sy" class="com.aprendoz_desarrollo.data.Sy" cascade="none">
             <column name="SY_Id_SY" not-null="true"/>
@@ -79,6 +82,12 @@
                 <column name="asignatura_id_asignatura" not-null="true"/>
             </key>
             <one-to-many class="com.aprendoz_desarrollo.data.Horario"/>
+        </set>
+        <set name="inscAlumAsigCopies" inverse="true">
+            <key>
+                <column name="Asignatura_Id_Asignatura" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumAsigCopy"/>
         </set>
         <set name="inscAlumAsigs" inverse="true">
             <key>
@@ -97,6 +106,12 @@
                 <column name="Asignatura_Id_Asignatura" not-null="true"/>
             </key>
             <one-to-many class="com.aprendoz_desarrollo.data.Unidad"/>
+        </set>
+        <set name="inscAlumAsigCopy2s" inverse="true">
+            <key>
+                <column name="Asignatura_Id_Asignatura" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumAsigCopy2"/>
         </set>
     </class>
 </hibernate-mapping>

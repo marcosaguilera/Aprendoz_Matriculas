@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  *  aprendoz_desarrollo.Asignatura
- *  05/06/2013 15:48:45
+ *  04/30/2014 15:36:22
  * 
  */
 public class Asignatura {
@@ -34,16 +34,19 @@ public class Asignatura {
     private Float ihA2;
     private Float ihA3;
     private Float meses;
+    private Integer esperadostotal;
     private Set<com.aprendoz_desarrollo.data.InscCursoAsig> inscCursoAsigs = new HashSet<com.aprendoz_desarrollo.data.InscCursoAsig>();
     private Set<com.aprendoz_desarrollo.data.Horario> horarios = new HashSet<com.aprendoz_desarrollo.data.Horario>();
+    private Set<com.aprendoz_desarrollo.data.InscAlumAsigCopy> inscAlumAsigCopies = new HashSet<com.aprendoz_desarrollo.data.InscAlumAsigCopy>();
     private Set<com.aprendoz_desarrollo.data.InscAlumAsig> inscAlumAsigs = new HashSet<com.aprendoz_desarrollo.data.InscAlumAsig>();
     private Set<com.aprendoz_desarrollo.data.Sesion> sesions = new HashSet<com.aprendoz_desarrollo.data.Sesion>();
     private Set<com.aprendoz_desarrollo.data.Unidad> unidads = new HashSet<com.aprendoz_desarrollo.data.Unidad>();
+    private Set<com.aprendoz_desarrollo.data.InscAlumAsigCopy2> inscAlumAsigCopy2s = new HashSet<com.aprendoz_desarrollo.data.InscAlumAsigCopy2>();
 
     public Asignatura() {
     }
 
-    public Asignatura(Integer idAsignatura, String asignatura, String subject, Boolean electiva, Integer idArea1, Integer idArea2, Integer idArea3, Integer idSubarea1, Integer idSubarea2, Integer idSubarea3, Integer salonIdSalon, Float intensidadHoraria, Float peso, String descripAsigEspaniol, String descripAsigIngles, Float ihA1, Float ihA2, Float ihA3, Float meses) {
+    public Asignatura(Integer idAsignatura, String asignatura, String subject, Boolean electiva, Integer idArea1, Integer idArea2, Integer idArea3, Integer idSubarea1, Integer idSubarea2, Integer idSubarea3, Integer salonIdSalon, Float intensidadHoraria, Float peso, String descripAsigEspaniol, String descripAsigIngles, Float ihA1, Float ihA2, Float ihA3, Float meses, Integer esperadostotal) {
         this.idAsignatura = idAsignatura;
         this.asignatura = asignatura;
         this.subject = subject;
@@ -63,9 +66,10 @@ public class Asignatura {
         this.ihA2 = ihA2;
         this.ihA3 = ihA3;
         this.meses = meses;
+        this.esperadostotal = esperadostotal;
     }
 
-    public Asignatura(Integer idAsignatura, Grado grado, TipoInscAsig tipoInscAsig, Sy sy, String asignatura, String subject, Boolean electiva, Integer idArea1, Integer idArea2, Integer idArea3, Integer idSubarea1, Integer idSubarea2, Integer idSubarea3, Integer salonIdSalon, Float intensidadHoraria, Float peso, String descripAsigEspaniol, String descripAsigIngles, Float ihA1, Float ihA2, Float ihA3, Float meses, Set<com.aprendoz_desarrollo.data.InscCursoAsig> inscCursoAsigs, Set<com.aprendoz_desarrollo.data.Horario> horarios, Set<com.aprendoz_desarrollo.data.InscAlumAsig> inscAlumAsigs, Set<com.aprendoz_desarrollo.data.Sesion> sesions, Set<com.aprendoz_desarrollo.data.Unidad> unidads) {
+    public Asignatura(Integer idAsignatura, Grado grado, TipoInscAsig tipoInscAsig, Sy sy, String asignatura, String subject, Boolean electiva, Integer idArea1, Integer idArea2, Integer idArea3, Integer idSubarea1, Integer idSubarea2, Integer idSubarea3, Integer salonIdSalon, Float intensidadHoraria, Float peso, String descripAsigEspaniol, String descripAsigIngles, Float ihA1, Float ihA2, Float ihA3, Float meses, Integer esperadostotal, Set<com.aprendoz_desarrollo.data.InscCursoAsig> inscCursoAsigs, Set<com.aprendoz_desarrollo.data.Horario> horarios, Set<com.aprendoz_desarrollo.data.InscAlumAsigCopy> inscAlumAsigCopies, Set<com.aprendoz_desarrollo.data.InscAlumAsig> inscAlumAsigs, Set<com.aprendoz_desarrollo.data.Sesion> sesions, Set<com.aprendoz_desarrollo.data.Unidad> unidads, Set<com.aprendoz_desarrollo.data.InscAlumAsigCopy2> inscAlumAsigCopy2s) {
         this.idAsignatura = idAsignatura;
         this.grado = grado;
         this.tipoInscAsig = tipoInscAsig;
@@ -88,11 +92,14 @@ public class Asignatura {
         this.ihA2 = ihA2;
         this.ihA3 = ihA3;
         this.meses = meses;
+        this.esperadostotal = esperadostotal;
         this.inscCursoAsigs = inscCursoAsigs;
         this.horarios = horarios;
+        this.inscAlumAsigCopies = inscAlumAsigCopies;
         this.inscAlumAsigs = inscAlumAsigs;
         this.sesions = sesions;
         this.unidads = unidads;
+        this.inscAlumAsigCopy2s = inscAlumAsigCopy2s;
     }
 
     public Integer getIdAsignatura() {
@@ -271,6 +278,14 @@ public class Asignatura {
         this.meses = meses;
     }
 
+    public Integer getEsperadostotal() {
+        return esperadostotal;
+    }
+
+    public void setEsperadostotal(Integer esperadostotal) {
+        this.esperadostotal = esperadostotal;
+    }
+
     public Set<com.aprendoz_desarrollo.data.InscCursoAsig> getInscCursoAsigs() {
         return inscCursoAsigs;
     }
@@ -285,6 +300,14 @@ public class Asignatura {
 
     public void setHorarios(Set<com.aprendoz_desarrollo.data.Horario> horarios) {
         this.horarios = horarios;
+    }
+
+    public Set<com.aprendoz_desarrollo.data.InscAlumAsigCopy> getInscAlumAsigCopies() {
+        return inscAlumAsigCopies;
+    }
+
+    public void setInscAlumAsigCopies(Set<com.aprendoz_desarrollo.data.InscAlumAsigCopy> inscAlumAsigCopies) {
+        this.inscAlumAsigCopies = inscAlumAsigCopies;
     }
 
     public Set<com.aprendoz_desarrollo.data.InscAlumAsig> getInscAlumAsigs() {
@@ -309,6 +332,14 @@ public class Asignatura {
 
     public void setUnidads(Set<com.aprendoz_desarrollo.data.Unidad> unidads) {
         this.unidads = unidads;
+    }
+
+    public Set<com.aprendoz_desarrollo.data.InscAlumAsigCopy2> getInscAlumAsigCopy2s() {
+        return inscAlumAsigCopy2s;
+    }
+
+    public void setInscAlumAsigCopy2s(Set<com.aprendoz_desarrollo.data.InscAlumAsigCopy2> inscAlumAsigCopy2s) {
+        this.inscAlumAsigCopy2s = inscAlumAsigCopy2s;
     }
 
 }

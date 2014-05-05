@@ -8,7 +8,7 @@ import java.util.Set;
 
 /**
  *  aprendoz_desarrollo.Periodo
- *  05/06/2013 15:48:45
+ *  04/30/2014 15:36:22
  * 
  */
 public class Periodo {
@@ -19,6 +19,8 @@ public class Periodo {
     private String periodo;
     private Date fechaInicio;
     private Date fechaFin;
+    private Set<com.aprendoz_desarrollo.data.InscAlumAsigCopy> inscAlumAsigCopies = new HashSet<com.aprendoz_desarrollo.data.InscAlumAsigCopy>();
+    private Set<com.aprendoz_desarrollo.data.InscAlumAsigCopy2> inscAlumAsigCopy2s = new HashSet<com.aprendoz_desarrollo.data.InscAlumAsigCopy2>();
     private Set<com.aprendoz_desarrollo.data.InscCursoAsig> inscCursoAsigs = new HashSet<com.aprendoz_desarrollo.data.InscCursoAsig>();
     private Set<com.aprendoz_desarrollo.data.InscAlumAsig> inscAlumAsigs = new HashSet<com.aprendoz_desarrollo.data.InscAlumAsig>();
 
@@ -32,13 +34,15 @@ public class Periodo {
         this.fechaFin = fechaFin;
     }
 
-    public Periodo(Integer idPeriodo, TipoPeriodo tipoPeriodo, Sy sy, String periodo, Date fechaInicio, Date fechaFin, Set<com.aprendoz_desarrollo.data.InscCursoAsig> inscCursoAsigs, Set<com.aprendoz_desarrollo.data.InscAlumAsig> inscAlumAsigs) {
+    public Periodo(Integer idPeriodo, TipoPeriodo tipoPeriodo, Sy sy, String periodo, Date fechaInicio, Date fechaFin, Set<com.aprendoz_desarrollo.data.InscAlumAsigCopy> inscAlumAsigCopies, Set<com.aprendoz_desarrollo.data.InscAlumAsigCopy2> inscAlumAsigCopy2s, Set<com.aprendoz_desarrollo.data.InscCursoAsig> inscCursoAsigs, Set<com.aprendoz_desarrollo.data.InscAlumAsig> inscAlumAsigs) {
         this.idPeriodo = idPeriodo;
         this.tipoPeriodo = tipoPeriodo;
         this.sy = sy;
         this.periodo = periodo;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
+        this.inscAlumAsigCopies = inscAlumAsigCopies;
+        this.inscAlumAsigCopy2s = inscAlumAsigCopy2s;
         this.inscCursoAsigs = inscCursoAsigs;
         this.inscAlumAsigs = inscAlumAsigs;
     }
@@ -89,6 +93,22 @@ public class Periodo {
 
     public void setFechaFin(Date fechaFin) {
         this.fechaFin = fechaFin;
+    }
+
+    public Set<com.aprendoz_desarrollo.data.InscAlumAsigCopy> getInscAlumAsigCopies() {
+        return inscAlumAsigCopies;
+    }
+
+    public void setInscAlumAsigCopies(Set<com.aprendoz_desarrollo.data.InscAlumAsigCopy> inscAlumAsigCopies) {
+        this.inscAlumAsigCopies = inscAlumAsigCopies;
+    }
+
+    public Set<com.aprendoz_desarrollo.data.InscAlumAsigCopy2> getInscAlumAsigCopy2s() {
+        return inscAlumAsigCopy2s;
+    }
+
+    public void setInscAlumAsigCopy2s(Set<com.aprendoz_desarrollo.data.InscAlumAsigCopy2> inscAlumAsigCopy2s) {
+        this.inscAlumAsigCopy2s = inscAlumAsigCopy2s;
     }
 
     public Set<com.aprendoz_desarrollo.data.InscCursoAsig> getInscCursoAsigs() {

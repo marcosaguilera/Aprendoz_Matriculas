@@ -5,7 +5,7 @@ package com.aprendoz_desarrollo.data;
 
 /**
  *  aprendoz_desarrollo.PadresVistaAprendizajes
- *  05/06/2013 15:48:46
+ *  04/30/2014 15:36:23
  * 
  */
 public class PadresVistaAprendizajes {
