@@ -12,3 +12,11 @@ export/Aprendoz_Matriculas.zip
 *.ear
 
 *.war
+
+export/Aprendoz_Matriculas.zip
+
+services/aprendoz_desarrollo/src/com/aprendoz_desarrollo/data/Anuncio.java
+
+dist/Aprendoz_Matriculas.ear
+
+dist/Aprendoz_Matriculas.war

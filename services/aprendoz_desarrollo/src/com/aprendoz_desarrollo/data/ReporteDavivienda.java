@@ -5,7 +5,7 @@ package com.aprendoz_desarrollo.data;
 
 /**
  *  aprendoz_desarrollo.ReporteDavivienda
- *  04/30/2014 15:36:23
+ *  06/09/2014 17:06:46
  * 
  */
 public class ReporteDavivienda {
