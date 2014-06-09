@@ -477,6 +477,25 @@ dojo.declare("Main", wm.Page, {
       alert("Asegurese de seleccionar un Estudiante de la tabla Grupo Familiar antes de continuar.");
     }  
   },
- 
+  promocionLiveForm1UpdateData: function(inSender) {
+      var username= main.getUserName.getData().dataValue;
+      var now= new Date().getTime();
+      var idpromocion= this.idPromocionEditor1.getDataValue();
+      var codigo_persona= this.personaLookup3.getDataValue();
+      var inscrito= this.autorizadoFinancieraEditor1.getDataValue();
+      var comentario= this.commentfinancEditor1.getDataValue();
+      var inscrito_cra= this.checkBoxEditor1.getDataValue();
+      var comentario_cra= this.textAreaEditor1.getDataValue();
+      var detalles= "[promocion->"+idpromocion+" ->financiera_inscrito->"+inscrito+" ->comentario-financiera-> "+comentario+"->cra_inscrito->"+inscrito_cra+" ->comentario-cra "+comentario_cra+"]";
+      console.log(detalles);
+      var data= "accion: actualizar -> idpersona: "+codigo_persona+" -> Detalles: ["+detalles+"]";
+          this.log_insertaAcciones.setValue("usuario", username);
+          this.log_insertaAcciones.setValue("accionRealizada", data);
+          this.log_insertaAcciones.setValue("tablaAfectada", "promocion");
+          this.log_insertaAcciones.setValue("fechaCreacion", now);
+          this.log_insertaAcciones.setValue("fechaModificacion", now);
+          this.insertaAccionesUsuarios.setDataSet(this.log_insertaAcciones); 
+          this.insertaAccionesUsuarios.insertData();         
+  },
   _end: 0
 });

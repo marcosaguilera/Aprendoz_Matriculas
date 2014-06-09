@@ -7,13 +7,14 @@ import java.util.Set;
 
 /**
  *  aprendoz_desarrollo.TipoInscAsig
- *  04/30/2014 15:36:23
+ *  06/06/2014 10:41:29
  * 
  */
 public class TipoInscAsig {
 
     private Integer idTipoInscAsig;
     private String tipo;
+    private Set<com.aprendoz_desarrollo.data.AsignaturaCopy> asignaturaCopies = new HashSet<com.aprendoz_desarrollo.data.AsignaturaCopy>();
     private Set<com.aprendoz_desarrollo.data.Asignatura> asignaturas = new HashSet<com.aprendoz_desarrollo.data.Asignatura>();
 
     public TipoInscAsig() {
@@ -24,9 +25,10 @@ public class TipoInscAsig {
         this.tipo = tipo;
     }
 
-    public TipoInscAsig(Integer idTipoInscAsig, String tipo, Set<com.aprendoz_desarrollo.data.Asignatura> asignaturas) {
+    public TipoInscAsig(Integer idTipoInscAsig, String tipo, Set<com.aprendoz_desarrollo.data.AsignaturaCopy> asignaturaCopies, Set<com.aprendoz_desarrollo.data.Asignatura> asignaturas) {
         this.idTipoInscAsig = idTipoInscAsig;
         this.tipo = tipo;
+        this.asignaturaCopies = asignaturaCopies;
         this.asignaturas = asignaturas;
     }
 
@@ -44,6 +46,14 @@ public class TipoInscAsig {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public Set<com.aprendoz_desarrollo.data.AsignaturaCopy> getAsignaturaCopies() {
+        return asignaturaCopies;
+    }
+
+    public void setAsignaturaCopies(Set<com.aprendoz_desarrollo.data.AsignaturaCopy> asignaturaCopies) {
+        this.asignaturaCopies = asignaturaCopies;
     }
 
     public Set<com.aprendoz_desarrollo.data.Asignatura> getAsignaturas() {

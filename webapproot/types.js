@@ -1233,6 +1233,130 @@ wm.types = {
 			"liveService": true,
 			"service": "aprendoz_desarrollo"
 		},
+		"com.aprendoz_desarrollo.data.AprendizajesAsignaturas": {
+			"fields": {
+				"aprendizaje": {
+					"exclude": [],
+					"fieldOrder": 2,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"asignatura": {
+					"exclude": [],
+					"fieldOrder": 10,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.Asignatura"
+				},
+				"dimensionComprension": {
+					"exclude": [],
+					"fieldOrder": 9,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "com.aprendoz_desarrollo.data.DimensionComprension"
+				},
+				"dimensionCurricular": {
+					"exclude": [],
+					"fieldOrder": 12,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "com.aprendoz_desarrollo.data.DimensionCurricular"
+				},
+				"eje2IdEje": {
+					"exclude": [],
+					"fieldOrder": 6,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"eje3IdEje": {
+					"exclude": [],
+					"fieldOrder": 7,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"ejeIdEje": {
+					"exclude": [],
+					"fieldOrder": 5,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"fechaEsperada": {
+					"exclude": [],
+					"fieldOrder": 1,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.util.Date"
+				},
+				"idAprendizaje": {
+					"exclude": ["insert"],
+					"fieldOrder": 0,
+					"include": ["delete", "read", "update"],
+					"isList": false,
+					"noChange": ["delete", "read", "update"],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"inteligencia": {
+					"exclude": [],
+					"fieldOrder": 8,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "com.aprendoz_desarrollo.data.Inteligencia"
+				},
+				"learning": {
+					"exclude": [],
+					"fieldOrder": 3,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"nivelEsperado": {
+					"exclude": [],
+					"fieldOrder": 11,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "com.aprendoz_desarrollo.data.NivelEsperado"
+				},
+				"peso": {
+					"exclude": [],
+					"fieldOrder": 4,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				}
+			},
+			"internal": false,
+			"liveService": true,
+			"service": "aprendoz_desarrollo"
+		},
 		"com.aprendoz_desarrollo.data.Area": {
 			"fields": {
 				"area": {
@@ -1287,6 +1411,15 @@ wm.types = {
 		},
 		"com.aprendoz_desarrollo.data.Asignatura": {
 			"fields": {
+				"aprendizajesAsignaturases": {
+					"exclude": [],
+					"fieldOrder": 31,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.AprendizajesAsignaturas"
+				},
 				"asignatura": {
 					"exclude": [],
 					"fieldOrder": 1,
@@ -1451,21 +1584,39 @@ wm.types = {
 				},
 				"inscAlumAsigCopy2s": {
 					"exclude": [],
-					"fieldOrder": 29,
+					"fieldOrder": 32,
 					"include": [],
 					"isList": true,
 					"noChange": [],
 					"required": false,
 					"type": "com.aprendoz_desarrollo.data.InscAlumAsigCopy2"
 				},
-				"inscAlumAsigs": {
+				"inscAlumAsigCopy3s": {
 					"exclude": [],
 					"fieldOrder": 26,
 					"include": [],
 					"isList": true,
 					"noChange": [],
 					"required": false,
+					"type": "com.aprendoz_desarrollo.data.InscAlumAsigCopy3"
+				},
+				"inscAlumAsigs": {
+					"exclude": [],
+					"fieldOrder": 27,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
 					"type": "com.aprendoz_desarrollo.data.InscAlumAsig"
+				},
+				"inscCursoAsigCopies": {
+					"exclude": [],
+					"fieldOrder": 29,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.InscCursoAsigCopy"
 				},
 				"inscCursoAsigs": {
 					"exclude": [],
@@ -1514,7 +1665,7 @@ wm.types = {
 				},
 				"sesions": {
 					"exclude": [],
-					"fieldOrder": 27,
+					"fieldOrder": 28,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -1550,12 +1701,226 @@ wm.types = {
 				},
 				"unidads": {
 					"exclude": [],
-					"fieldOrder": 28,
+					"fieldOrder": 30,
 					"include": [],
 					"isList": true,
 					"noChange": [],
 					"required": false,
 					"type": "com.aprendoz_desarrollo.data.Unidad"
+				}
+			},
+			"internal": false,
+			"liveService": true,
+			"service": "aprendoz_desarrollo"
+		},
+		"com.aprendoz_desarrollo.data.AsignaturaCopy": {
+			"fields": {
+				"asignatura": {
+					"exclude": [],
+					"fieldOrder": 1,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"descripAsigEspaniol": {
+					"exclude": [],
+					"fieldOrder": 13,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"descripAsigIngles": {
+					"exclude": [],
+					"fieldOrder": 14,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"electiva": {
+					"exclude": [],
+					"fieldOrder": 3,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Boolean"
+				},
+				"esperadostotal": {
+					"exclude": [],
+					"fieldOrder": 19,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"grado": {
+					"exclude": [],
+					"fieldOrder": 20,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "com.aprendoz_desarrollo.data.Grado"
+				},
+				"idArea1": {
+					"exclude": [],
+					"fieldOrder": 4,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"idArea2": {
+					"exclude": [],
+					"fieldOrder": 5,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"idArea3": {
+					"exclude": [],
+					"fieldOrder": 6,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"idAsignatura": {
+					"exclude": [],
+					"fieldOrder": 0,
+					"include": ["delete", "read", "update", "insert"],
+					"isList": false,
+					"noChange": ["delete", "read", "update"],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"idSubarea1": {
+					"exclude": [],
+					"fieldOrder": 7,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"idSubarea2": {
+					"exclude": [],
+					"fieldOrder": 8,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"idSubarea3": {
+					"exclude": [],
+					"fieldOrder": 9,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"ihA1": {
+					"exclude": [],
+					"fieldOrder": 15,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Float"
+				},
+				"ihA2": {
+					"exclude": [],
+					"fieldOrder": 16,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Float"
+				},
+				"ihA3": {
+					"exclude": [],
+					"fieldOrder": 17,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Float"
+				},
+				"intensidadHoraria": {
+					"exclude": [],
+					"fieldOrder": 11,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Float"
+				},
+				"meses": {
+					"exclude": [],
+					"fieldOrder": 18,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Float"
+				},
+				"peso": {
+					"exclude": [],
+					"fieldOrder": 12,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Float"
+				},
+				"salonIdSalon": {
+					"exclude": [],
+					"fieldOrder": 10,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"subject": {
+					"exclude": [],
+					"fieldOrder": 2,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"sy": {
+					"exclude": [],
+					"fieldOrder": 22,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "com.aprendoz_desarrollo.data.Sy"
+				},
+				"tipoInscAsig": {
+					"exclude": [],
+					"fieldOrder": 21,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.TipoInscAsig"
 				}
 			},
 			"internal": false,
@@ -4270,12 +4635,21 @@ wm.types = {
 				},
 				"inscCoordinadoresCursos": {
 					"exclude": [],
-					"fieldOrder": 11,
+					"fieldOrder": 12,
 					"include": [],
 					"isList": true,
 					"noChange": [],
 					"required": false,
 					"type": "com.aprendoz_desarrollo.data.InscCoordinadoresCurso"
+				},
+				"inscCursoAsigCopies": {
+					"exclude": [],
+					"fieldOrder": 11,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.InscCursoAsigCopy"
 				},
 				"inscCursoAsigs": {
 					"exclude": [],
@@ -4525,12 +4899,21 @@ wm.types = {
 			"fields": {
 				"aprendizajes": {
 					"exclude": [],
-					"fieldOrder": 2,
+					"fieldOrder": 3,
 					"include": [],
 					"isList": true,
 					"noChange": [],
 					"required": false,
 					"type": "com.aprendoz_desarrollo.data.Aprendizaje"
+				},
+				"aprendizajesAsignaturases": {
+					"exclude": [],
+					"fieldOrder": 2,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.AprendizajesAsignaturas"
 				},
 				"dimensionComprension": {
 					"exclude": [],
@@ -4565,6 +4948,15 @@ wm.types = {
 					"noChange": [],
 					"required": false,
 					"type": "com.aprendoz_desarrollo.data.Aprendizaje"
+				},
+				"aprendizajesAsignaturases": {
+					"exclude": [],
+					"fieldOrder": 3,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.AprendizajesAsignaturas"
 				},
 				"dimensionCurricular": {
 					"exclude": [],
@@ -7014,16 +7406,327 @@ wm.types = {
 			"liveService": true,
 			"service": "aprendoz_desarrollo"
 		},
+		"com.aprendoz_desarrollo.data.GestionEncuestas": {
+			"fields": {
+				"fechaActualizacion": {
+					"exclude": [],
+					"fieldOrder": 2,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.util.Date"
+				},
+				"fechaIngreso": {
+					"exclude": [],
+					"fieldOrder": 1,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.util.Date"
+				},
+				"grado": {
+					"exclude": [],
+					"fieldOrder": 4,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"idPkEncuesta": {
+					"exclude": ["insert"],
+					"fieldOrder": 0,
+					"include": ["delete", "read", "update"],
+					"isList": false,
+					"noChange": ["delete", "read", "update"],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p1": {
+					"exclude": [],
+					"fieldOrder": 5,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p10": {
+					"exclude": [],
+					"fieldOrder": 14,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p11": {
+					"exclude": [],
+					"fieldOrder": 15,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p12": {
+					"exclude": [],
+					"fieldOrder": 16,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p13": {
+					"exclude": [],
+					"fieldOrder": 17,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p14": {
+					"exclude": [],
+					"fieldOrder": 18,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p15": {
+					"exclude": [],
+					"fieldOrder": 19,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p16": {
+					"exclude": [],
+					"fieldOrder": 20,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p17": {
+					"exclude": [],
+					"fieldOrder": 21,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p18": {
+					"exclude": [],
+					"fieldOrder": 22,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p19": {
+					"exclude": [],
+					"fieldOrder": 23,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p2": {
+					"exclude": [],
+					"fieldOrder": 6,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p20": {
+					"exclude": [],
+					"fieldOrder": 24,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p3": {
+					"exclude": [],
+					"fieldOrder": 7,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p4": {
+					"exclude": [],
+					"fieldOrder": 8,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p5": {
+					"exclude": [],
+					"fieldOrder": 9,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p6": {
+					"exclude": [],
+					"fieldOrder": 10,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p7": {
+					"exclude": [],
+					"fieldOrder": 11,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p8": {
+					"exclude": [],
+					"fieldOrder": 12,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"p9": {
+					"exclude": [],
+					"fieldOrder": 13,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"persona": {
+					"exclude": [],
+					"fieldOrder": 26,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "com.aprendoz_desarrollo.data.Persona"
+				},
+				"sugerencias": {
+					"exclude": [],
+					"fieldOrder": 25,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"tipo": {
+					"exclude": [],
+					"fieldOrder": 3,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				}
+			},
+			"internal": false,
+			"liveService": true,
+			"service": "aprendoz_desarrollo"
+		},
+		"com.aprendoz_desarrollo.data.GestionEncuestasGrupoFamiliar": {
+			"fields": {
+				"encuestaTerminada": {
+					"exclude": [],
+					"fieldOrder": 1,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Byte"
+				},
+				"fechaActualizacion": {
+					"exclude": [],
+					"fieldOrder": 3,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.util.Date"
+				},
+				"fechaCreacion": {
+					"exclude": [],
+					"fieldOrder": 2,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.util.Date"
+				},
+				"grupoFamiliar": {
+					"exclude": [],
+					"fieldOrder": 4,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "com.aprendoz_desarrollo.data.GrupoFamiliar"
+				},
+				"idGestionEncuestaGrupoFamiliar": {
+					"exclude": ["insert"],
+					"fieldOrder": 0,
+					"include": ["delete", "read", "update"],
+					"isList": false,
+					"noChange": ["delete", "read", "update"],
+					"required": true,
+					"type": "java.lang.Integer"
+				}
+			},
+			"internal": false,
+			"liveService": true,
+			"service": "aprendoz_desarrollo"
+		},
 		"com.aprendoz_desarrollo.data.Grado": {
 			"fields": {
 				"accAuthorizations": {
+					"exclude": [],
+					"fieldOrder": 9,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.AccAuthorization"
+				},
+				"asignaturaCopies": {
 					"exclude": [],
 					"fieldOrder": 8,
 					"include": [],
 					"isList": true,
 					"noChange": [],
 					"required": false,
-					"type": "com.aprendoz_desarrollo.data.AccAuthorization"
+					"type": "com.aprendoz_desarrollo.data.AsignaturaCopy"
 				},
 				"asignaturas": {
 					"exclude": [],
@@ -7045,7 +7748,7 @@ wm.types = {
 				},
 				"costosAnualeses": {
 					"exclude": [],
-					"fieldOrder": 10,
+					"fieldOrder": 11,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -7063,7 +7766,7 @@ wm.types = {
 				},
 				"cursos": {
 					"exclude": [],
-					"fieldOrder": 9,
+					"fieldOrder": 10,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -7120,16 +7823,59 @@ wm.types = {
 			"liveService": true,
 			"service": "aprendoz_desarrollo"
 		},
+		"com.aprendoz_desarrollo.data.GradoSiguiente": {
+			"fields": {
+				"gradoIdGrado1": {
+					"exclude": [],
+					"fieldOrder": 1,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"gradoIdGrado2": {
+					"exclude": [],
+					"fieldOrder": 2,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"idGradoSiguiente": {
+					"exclude": ["insert"],
+					"fieldOrder": 0,
+					"include": ["delete", "read", "update"],
+					"isList": false,
+					"noChange": ["delete", "read", "update"],
+					"required": true,
+					"type": "java.lang.Integer"
+				}
+			},
+			"internal": false,
+			"liveService": true,
+			"service": "aprendoz_desarrollo"
+		},
 		"com.aprendoz_desarrollo.data.GrupoFamiliar": {
 			"fields": {
 				"actualizacionGrupoFamiliars": {
+					"exclude": [],
+					"fieldOrder": 7,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.ActualizacionGrupoFamiliar"
+				},
+				"gestionEncuestasGrupoFamiliars": {
 					"exclude": [],
 					"fieldOrder": 6,
 					"include": [],
 					"isList": true,
 					"noChange": [],
 					"required": false,
-					"type": "com.aprendoz_desarrollo.data.ActualizacionGrupoFamiliar"
+					"type": "com.aprendoz_desarrollo.data.GestionEncuestasGrupoFamiliar"
 				},
 				"grupoFamiliar": {
 					"exclude": [],
@@ -9712,7 +10458,7 @@ wm.types = {
 			"fields": {
 				"aprendizaje": {
 					"exclude": [],
-					"fieldOrder": 7,
+					"fieldOrder": 8,
 					"include": [],
 					"isList": false,
 					"noChange": [],
@@ -9775,12 +10521,21 @@ wm.types = {
 				},
 				"persona": {
 					"exclude": [],
-					"fieldOrder": 6,
+					"fieldOrder": 7,
 					"include": [],
 					"isList": false,
 					"noChange": [],
 					"required": true,
 					"type": "com.aprendoz_desarrollo.data.Persona"
+				},
+				"usuario": {
+					"exclude": [],
+					"fieldOrder": 6,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
 				}
 			},
 			"internal": false,
@@ -9964,6 +10719,94 @@ wm.types = {
 			"service": "aprendoz_desarrollo"
 		},
 		"com.aprendoz_desarrollo.data.InscAlumAsigCopy2": {
+			"fields": {
+				"asignatura": {
+					"exclude": [],
+					"fieldOrder": 6,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "com.aprendoz_desarrollo.data.Asignatura"
+				},
+				"califChar": {
+					"exclude": [],
+					"fieldOrder": 5,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"calificacion": {
+					"exclude": [],
+					"fieldOrder": 1,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.math.BigDecimal"
+				},
+				"esperados": {
+					"exclude": [],
+					"fieldOrder": 3,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"idInscAlumAsig": {
+					"exclude": ["insert"],
+					"fieldOrder": 0,
+					"include": ["delete", "read", "update"],
+					"isList": false,
+					"noChange": ["delete", "read", "update"],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"logrados": {
+					"exclude": [],
+					"fieldOrder": 4,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"periodo": {
+					"exclude": [],
+					"fieldOrder": 8,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "com.aprendoz_desarrollo.data.Periodo"
+				},
+				"persona": {
+					"exclude": [],
+					"fieldOrder": 7,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "com.aprendoz_desarrollo.data.Persona"
+				},
+				"porcentaje": {
+					"exclude": [],
+					"fieldOrder": 2,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.math.BigDecimal"
+				}
+			},
+			"internal": false,
+			"liveService": true,
+			"service": "aprendoz_desarrollo"
+		},
+		"com.aprendoz_desarrollo.data.InscAlumAsigCopy3": {
 			"fields": {
 				"asignatura": {
 					"exclude": [],
@@ -10742,6 +11585,58 @@ wm.types = {
 			"liveService": true,
 			"service": "aprendoz_desarrollo"
 		},
+		"com.aprendoz_desarrollo.data.InscCursoAsigCopy": {
+			"fields": {
+				"asignatura": {
+					"exclude": [],
+					"fieldOrder": 2,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "com.aprendoz_desarrollo.data.Asignatura"
+				},
+				"curso": {
+					"exclude": [],
+					"fieldOrder": 1,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "com.aprendoz_desarrollo.data.Curso"
+				},
+				"idInscCursoAsig": {
+					"exclude": ["insert"],
+					"fieldOrder": 0,
+					"include": ["delete", "read", "update"],
+					"isList": false,
+					"noChange": ["delete", "read", "update"],
+					"required": true,
+					"type": "java.lang.Long"
+				},
+				"periodo": {
+					"exclude": [],
+					"fieldOrder": 4,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "com.aprendoz_desarrollo.data.Periodo"
+				},
+				"persona": {
+					"exclude": [],
+					"fieldOrder": 3,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "com.aprendoz_desarrollo.data.Persona"
+				}
+			},
+			"internal": false,
+			"liveService": true,
+			"service": "aprendoz_desarrollo"
+		},
 		"com.aprendoz_desarrollo.data.InscDirectorNivel": {
 			"fields": {
 				"idInscDirectorNivel": {
@@ -11137,12 +12032,21 @@ wm.types = {
 			"fields": {
 				"aprendizajes": {
 					"exclude": [],
-					"fieldOrder": 2,
+					"fieldOrder": 3,
 					"include": [],
 					"isList": true,
 					"noChange": [],
 					"required": false,
 					"type": "com.aprendoz_desarrollo.data.Aprendizaje"
+				},
+				"aprendizajesAsignaturases": {
+					"exclude": [],
+					"fieldOrder": 2,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.AprendizajesAsignaturas"
 				},
 				"idInteligencia": {
 					"exclude": [],
@@ -11762,6 +12666,15 @@ wm.types = {
 					"noChange": [],
 					"required": false,
 					"type": "com.aprendoz_desarrollo.data.Aprendizaje"
+				},
+				"aprendizajesAsignaturases": {
+					"exclude": [],
+					"fieldOrder": 3,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.AprendizajesAsignaturas"
 				},
 				"idNivelEsperado": {
 					"exclude": [],
@@ -12645,6 +13558,15 @@ wm.types = {
 					"required": false,
 					"type": "com.aprendoz_desarrollo.data.InscAlumAsigCopy2"
 				},
+				"inscAlumAsigCopy3s": {
+					"exclude": [],
+					"fieldOrder": 11,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.InscAlumAsigCopy3"
+				},
 				"inscAlumAsigs": {
 					"exclude": [],
 					"fieldOrder": 9,
@@ -12653,6 +13575,15 @@ wm.types = {
 					"noChange": [],
 					"required": false,
 					"type": "com.aprendoz_desarrollo.data.InscAlumAsig"
+				},
+				"inscCursoAsigCopies": {
+					"exclude": [],
+					"fieldOrder": 10,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.InscCursoAsigCopy"
 				},
 				"inscCursoAsigs": {
 					"exclude": [],
@@ -12699,7 +13630,7 @@ wm.types = {
 			"fields": {
 				"accStudentCards": {
 					"exclude": [],
-					"fieldOrder": 73,
+					"fieldOrder": 74,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -12717,7 +13648,7 @@ wm.types = {
 				},
 				"actualizacionDatosPersonas": {
 					"exclude": [],
-					"fieldOrder": 83,
+					"fieldOrder": 85,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -12744,7 +13675,7 @@ wm.types = {
 				},
 				"asistencias": {
 					"exclude": [],
-					"fieldOrder": 76,
+					"fieldOrder": 77,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -12762,7 +13693,7 @@ wm.types = {
 				},
 				"calificacionFinals": {
 					"exclude": [],
-					"fieldOrder": 67,
+					"fieldOrder": 68,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -12852,7 +13783,7 @@ wm.types = {
 				},
 				"coordinacionDeGrupos": {
 					"exclude": [],
-					"fieldOrder": 74,
+					"fieldOrder": 75,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -12861,7 +13792,7 @@ wm.types = {
 				},
 				"coordinacions": {
 					"exclude": [],
-					"fieldOrder": 96,
+					"fieldOrder": 100,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -12870,7 +13801,7 @@ wm.types = {
 				},
 				"coordinadoreses": {
 					"exclude": [],
-					"fieldOrder": 90,
+					"fieldOrder": 93,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -12942,7 +13873,7 @@ wm.types = {
 				},
 				"eventualidadPersonases": {
 					"exclude": [],
-					"fieldOrder": 72,
+					"fieldOrder": 73,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -12978,12 +13909,21 @@ wm.types = {
 				},
 				"fichaMedicas": {
 					"exclude": [],
-					"fieldOrder": 84,
+					"fieldOrder": 86,
 					"include": [],
 					"isList": true,
 					"noChange": [],
 					"required": false,
 					"type": "com.aprendoz_desarrollo.data.FichaMedica"
+				},
+				"gestionEncuestases": {
+					"exclude": [],
+					"fieldOrder": 97,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.GestionEncuestas"
 				},
 				"gradoIngreso": {
 					"exclude": [],
@@ -13023,7 +13963,7 @@ wm.types = {
 				},
 				"inscAlumActividads": {
 					"exclude": [],
-					"fieldOrder": 69,
+					"fieldOrder": 71,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13041,7 +13981,7 @@ wm.types = {
 				},
 				"inscAlumAsigCopies": {
 					"exclude": [],
-					"fieldOrder": 88,
+					"fieldOrder": 90,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13050,16 +13990,25 @@ wm.types = {
 				},
 				"inscAlumAsigCopy2s": {
 					"exclude": [],
-					"fieldOrder": 95,
+					"fieldOrder": 99,
 					"include": [],
 					"isList": true,
 					"noChange": [],
 					"required": false,
 					"type": "com.aprendoz_desarrollo.data.InscAlumAsigCopy2"
 				},
+				"inscAlumAsigCopy3s": {
+					"exclude": [],
+					"fieldOrder": 95,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.InscAlumAsigCopy3"
+				},
 				"inscAlumAsigs": {
 					"exclude": [],
-					"fieldOrder": 93,
+					"fieldOrder": 96,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13068,7 +14017,7 @@ wm.types = {
 				},
 				"inscAlumCostoCopies": {
 					"exclude": [],
-					"fieldOrder": 82,
+					"fieldOrder": 84,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13077,7 +14026,7 @@ wm.types = {
 				},
 				"inscAlumCostos": {
 					"exclude": [],
-					"fieldOrder": 94,
+					"fieldOrder": 98,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13095,7 +14044,7 @@ wm.types = {
 				},
 				"inscAlumCursos": {
 					"exclude": [],
-					"fieldOrder": 75,
+					"fieldOrder": 76,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13104,7 +14053,7 @@ wm.types = {
 				},
 				"inscComentariosAlumnoses": {
 					"exclude": [],
-					"fieldOrder": 68,
+					"fieldOrder": 69,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13113,16 +14062,25 @@ wm.types = {
 				},
 				"inscCoordinadoresCursos": {
 					"exclude": [],
-					"fieldOrder": 77,
+					"fieldOrder": 78,
 					"include": [],
 					"isList": true,
 					"noChange": [],
 					"required": false,
 					"type": "com.aprendoz_desarrollo.data.InscCoordinadoresCurso"
 				},
+				"inscCursoAsigCopies": {
+					"exclude": [],
+					"fieldOrder": 83,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.InscCursoAsigCopy"
+				},
 				"inscCursoAsigs": {
 					"exclude": [],
-					"fieldOrder": 81,
+					"fieldOrder": 82,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13140,7 +14098,7 @@ wm.types = {
 				},
 				"inscPersonaEduComs": {
 					"exclude": [],
-					"fieldOrder": 91,
+					"fieldOrder": 92,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13149,7 +14107,7 @@ wm.types = {
 				},
 				"inscPersonaGrupoFamiliars": {
 					"exclude": [],
-					"fieldOrder": 71,
+					"fieldOrder": 72,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13158,7 +14116,7 @@ wm.types = {
 				},
 				"logDocenteses": {
 					"exclude": [],
-					"fieldOrder": 86,
+					"fieldOrder": 88,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13167,7 +14125,7 @@ wm.types = {
 				},
 				"logIngresoCarnes": {
 					"exclude": [],
-					"fieldOrder": 79,
+					"fieldOrder": 80,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13176,7 +14134,7 @@ wm.types = {
 				},
 				"logeventosaprendozs": {
 					"exclude": [],
-					"fieldOrder": 78,
+					"fieldOrder": 79,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13230,7 +14188,7 @@ wm.types = {
 				},
 				"matriculas": {
 					"exclude": [],
-					"fieldOrder": 92,
+					"fieldOrder": 94,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13365,7 +14323,7 @@ wm.types = {
 				},
 				"perfilPersonaImgs": {
 					"exclude": [],
-					"fieldOrder": 89,
+					"fieldOrder": 91,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13374,7 +14332,7 @@ wm.types = {
 				},
 				"personaCarnes": {
 					"exclude": [],
-					"fieldOrder": 87,
+					"fieldOrder": 89,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13399,9 +14357,18 @@ wm.types = {
 					"required": false,
 					"type": "java.lang.String"
 				},
+				"promocionCopies": {
+					"exclude": [],
+					"fieldOrder": 66,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.PromocionCopy"
+				},
 				"promocions": {
 					"exclude": [],
-					"fieldOrder": 80,
+					"fieldOrder": 81,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13545,7 +14512,7 @@ wm.types = {
 				},
 				"transporteInscAlumTransportes": {
 					"exclude": [],
-					"fieldOrder": 66,
+					"fieldOrder": 67,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13554,7 +14521,7 @@ wm.types = {
 				},
 				"transporteNovedadeses": {
 					"exclude": [],
-					"fieldOrder": 85,
+					"fieldOrder": 87,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -13721,6 +14688,157 @@ wm.types = {
 			"service": "aprendoz_desarrollo"
 		},
 		"com.aprendoz_desarrollo.data.Promocion": {
+			"fields": {
+				"aprobado": {
+					"exclude": [],
+					"fieldOrder": 1,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Boolean"
+				},
+				"autorizadoAcademico": {
+					"exclude": [],
+					"fieldOrder": 2,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Boolean"
+				},
+				"autorizadoCra": {
+					"exclude": [],
+					"fieldOrder": 6,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Boolean"
+				},
+				"autorizadoFinanciera": {
+					"exclude": [],
+					"fieldOrder": 4,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Boolean"
+				},
+				"autorizadoPromAnticipada": {
+					"exclude": [],
+					"fieldOrder": 13,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Boolean"
+				},
+				"calificacion": {
+					"exclude": [],
+					"fieldOrder": 11,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Float"
+				},
+				"calificacionChar": {
+					"exclude": [],
+					"fieldOrder": 12,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"commentCra": {
+					"exclude": [],
+					"fieldOrder": 7,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"commentaprobado": {
+					"exclude": [],
+					"fieldOrder": 9,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"commentcomite": {
+					"exclude": [],
+					"fieldOrder": 3,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"commentfinanc": {
+					"exclude": [],
+					"fieldOrder": 5,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"commentpromovido": {
+					"exclude": [],
+					"fieldOrder": 10,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"idPromocion": {
+					"exclude": ["insert"],
+					"fieldOrder": 0,
+					"include": ["delete", "read", "update"],
+					"isList": false,
+					"noChange": ["delete", "read", "update"],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"persona": {
+					"exclude": [],
+					"fieldOrder": 15,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "com.aprendoz_desarrollo.data.Persona"
+				},
+				"promovido": {
+					"exclude": [],
+					"fieldOrder": 8,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Boolean"
+				},
+				"sy": {
+					"exclude": [],
+					"fieldOrder": 14,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "com.aprendoz_desarrollo.data.Sy"
+				}
+			},
+			"internal": false,
+			"liveService": true,
+			"service": "aprendoz_desarrollo"
+		},
+		"com.aprendoz_desarrollo.data.PromocionCopy": {
 			"fields": {
 				"aprobado": {
 					"exclude": [],
@@ -15228,9 +16346,18 @@ wm.types = {
 		},
 		"com.aprendoz_desarrollo.data.Sy": {
 			"fields": {
+				"asignaturaCopies": {
+					"exclude": [],
+					"fieldOrder": 15,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.AsignaturaCopy"
+				},
 				"asignaturas": {
 					"exclude": [],
-					"fieldOrder": 17,
+					"fieldOrder": 18,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -15257,7 +16384,7 @@ wm.types = {
 				},
 				"coordinacions": {
 					"exclude": [],
-					"fieldOrder": 24,
+					"fieldOrder": 25,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -15266,7 +16393,7 @@ wm.types = {
 				},
 				"coordinadoreses": {
 					"exclude": [],
-					"fieldOrder": 19,
+					"fieldOrder": 20,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -15275,7 +16402,7 @@ wm.types = {
 				},
 				"costosAnualesCopies": {
 					"exclude": [],
-					"fieldOrder": 16,
+					"fieldOrder": 17,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -15284,7 +16411,7 @@ wm.types = {
 				},
 				"costosAnualeses": {
 					"exclude": [],
-					"fieldOrder": 25,
+					"fieldOrder": 26,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -15293,7 +16420,7 @@ wm.types = {
 				},
 				"costoses": {
 					"exclude": [],
-					"fieldOrder": 20,
+					"fieldOrder": 21,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -15311,7 +16438,7 @@ wm.types = {
 				},
 				"educoms": {
 					"exclude": [],
-					"fieldOrder": 18,
+					"fieldOrder": 19,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -15401,7 +16528,7 @@ wm.types = {
 				},
 				"matriculas": {
 					"exclude": [],
-					"fieldOrder": 21,
+					"fieldOrder": 22,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -15410,12 +16537,21 @@ wm.types = {
 				},
 				"periodos": {
 					"exclude": [],
-					"fieldOrder": 15,
+					"fieldOrder": 16,
 					"include": [],
 					"isList": true,
 					"noChange": [],
 					"required": false,
 					"type": "com.aprendoz_desarrollo.data.Periodo"
+				},
+				"promocionCopies": {
+					"exclude": [],
+					"fieldOrder": 27,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.PromocionCopy"
 				},
 				"promocions": {
 					"exclude": [],
@@ -15437,7 +16573,7 @@ wm.types = {
 				},
 				"secretariaEquivalenciaNotases": {
 					"exclude": [],
-					"fieldOrder": 23,
+					"fieldOrder": 24,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -15455,7 +16591,7 @@ wm.types = {
 				},
 				"sesionNivels": {
 					"exclude": [],
-					"fieldOrder": 22,
+					"fieldOrder": 23,
 					"include": [],
 					"isList": true,
 					"noChange": [],
@@ -15818,9 +16954,18 @@ wm.types = {
 		},
 		"com.aprendoz_desarrollo.data.TipoInscAsig": {
 			"fields": {
-				"asignaturas": {
+				"asignaturaCopies": {
 					"exclude": [],
 					"fieldOrder": 2,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.aprendoz_desarrollo.data.AsignaturaCopy"
+				},
+				"asignaturas": {
+					"exclude": [],
+					"fieldOrder": 3,
 					"include": [],
 					"isList": true,
 					"noChange": [],

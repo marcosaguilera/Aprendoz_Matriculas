@@ -5,7 +5,7 @@ package com.aprendoz_desarrollo.data;
 
 /**
  *  aprendoz_desarrollo.InscCoordinadoresCurso
- *  04/30/2014 15:36:23
+ *  06/06/2014 10:41:29
  * 
  */
 public class InscCoordinadoresCurso {
