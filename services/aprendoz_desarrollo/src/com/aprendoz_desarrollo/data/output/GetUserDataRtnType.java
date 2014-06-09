@@ -4,7 +4,7 @@ package com.aprendoz_desarrollo.data.output;
 
 
 /**
- * Generated for query "getUserData" on 06/06/2014 10:41:41
+ * Generated for query "getUserData" on 06/09/2014 17:07:01
  * 
  */
 public class GetUserDataRtnType {
