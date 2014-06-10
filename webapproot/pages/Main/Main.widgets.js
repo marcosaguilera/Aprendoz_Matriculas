@@ -65,7 +65,7 @@ Main.widgets = {
 			}]
 		}]
 	}],
-	costosLiveVariable1: ["wm.LiveVariable", {"autoUpdate":false,"startUpdate":false,"liveSource":"app.costosLiveView1","ignoreCase":true,"orderBy":"desc: nuevo, desc: anual, asc: nombreProducto"}, {}, {
+	costosLiveVariable1: ["wm.LiveVariable", {"autoUpdate":false,"startUpdate":false,"liveSource":"app.costosLiveView1","orderBy":"desc: nuevo, desc: anual, asc: nombreProducto","ignoreCase":true}, {}, {
 		binding: ["wm.Binding", {}, {}, {
 			wire: ["wm.Wire", {"targetProperty":"filter.sy.idSy","source":"costos_sel_sy.dataValue"}, {}],
 			wire1: ["wm.Wire", {"targetProperty":"filter.grado.idGrado","source":"costos_sel_grado.dataValue"}, {}],
@@ -120,7 +120,7 @@ Main.widgets = {
 			Centered_main_frame: ["wm.Template", {"_classes":{"domNode":["wm_SilverBlueTheme_MainOutsetPanel"]},"height":"100%","horizontalAlign":"center","verticalAlign":"top","width":"100%"}, {}, {
 				panel_principal: ["wm.Panel", {"_classes":{"domNode":["wm_SilverBlueTheme_WhiteOutsetPanel"]},"height":"100%","width":"100%","borderColor":"#a61c1c","roles":["7","10","11","13","15","20","21","22","23","25","24","14","8","9","16","17","18","19"]}, {}, {
 					TitleBar: ["wm.Template", {"_classes":{"domNode":["wm_SilverBlueTheme_MainOutsetPanel"]},"height":"73px","horizontalAlign":"left","verticalAlign":"top","width":"100%","padding":"5","layoutKind":"left-to-right"}, {}, {
-						headerPanel1: ["wm.Panel", {"height":"62px","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right"}, {}, {
+						headerPanel1: ["wm.Panel", {"height":"62px","width":"100%","layoutKind":"left-to-right","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 							logo: ["wm.Picture", {"_classes":{"domNode":["wm_Border_TopStyleCurved8px","wm_Border_BottomStyleCurved8px"]},"height":"100%","border":"0","width":"197px","source":"resources/images/logos/logo_aprendoz_nuevo.png","aspect":"v","padding":"10"}, {}],
 							spacer2: ["wm.Spacer", {"height":"30px","width":"100%"}, {}],
 							panel3: ["wm.Panel", {"height":"100%","width":"316px","horizontalAlign":"right","verticalAlign":"bottom"}, {}, {
@@ -134,7 +134,7 @@ Main.widgets = {
 					}],
 					main_page: ["wm.TabLayers", {}, {}, {
 						l_Busquedas: ["wm.Layer", {"caption":"Busqueda de Alumnos","horizontalAlign":"left","verticalAlign":"top"}, {}, {
-							panel_busquedas: ["wm.Panel", {"_classes":{"domNode":["wm_BackgroundColor_VeryLightGray"]},"height":"110px","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right"}, {}, {
+							panel_busquedas: ["wm.Panel", {"_classes":{"domNode":["wm_BackgroundColor_VeryLightGray"]},"height":"110px","width":"100%","layoutKind":"left-to-right","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 								layers2: ["wm.Layers", {}, {}, {
 									layer6: ["wm.Layer", {"caption":"layer6","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 										busqueda_box_apellido1: ["wm.TextEditor", {"width":"100%","caption":"1er Apellido"}, {"onchange":"busqueda_box_apellido1Change"}, {
@@ -195,7 +195,7 @@ Main.widgets = {
 								}],
 								spacer1: ["wm.Spacer", {"height":"48px","width":"80%"}, {}]
 							}],
-							panel10: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right"}, {}, {
+							panel10: ["wm.Panel", {"height":"100%","width":"100%","layoutKind":"left-to-right","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 								panel9: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 									busqueda_personas_curso: ["wm.DataGrid", {"_classes":{"domNode":["wm_FontSizePx_12px"]},"border":"0"}, {"onSelected":"busqueda_personas_cursoSelected","onSelectionChanged":"busqueda_personas_cursoSelectionChanged"}, {
 										binding: ["wm.Binding", {}, {}, {
@@ -250,16 +250,16 @@ Main.widgets = {
 										}]
 									}]
 								}],
-								pict_panel: ["wm.Panel", {"height":"100%","width":"130px","horizontalAlign":"left","verticalAlign":"top","padding":"3"}, {}, {
+								pict_panel: ["wm.Panel", {"height":"100%","width":"130px","padding":"3","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 									tiny_pic: ["wm.Picture", {"height":"175px","border":"1","width":"100%","source":"resources/images/buttons/noimg.gif","aspect":"v","borderColor":"#bbb"}, {}],
-									panel4: ["wm.Panel", {"_classes":{"domNode":["wm_Border_TopStyleCurved4px","wm_Border_BottomStyleCurved4px"]},"height":"110px","width":"100%","horizontalAlign":"left","verticalAlign":"top","border":"1","padding":"2","borderColor":"#bbb"}, {}, {
+									panel4: ["wm.Panel", {"_classes":{"domNode":["wm_Border_TopStyleCurved4px","wm_Border_BottomStyleCurved4px"]},"height":"110px","width":"100%","borderColor":"#bbb","border":"1","padding":"2","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 										label3: ["wm.Label", {"_classes":{"domNode":["wm_BackgroundColor_White","wm_Border_TopStyleCurved4px"]},"height":"100%","width":"100%","border":"0","align":"center","caption":"Clic en el icono para ver los costos del estudiante","singleLine":false}, {}, {
 											format: ["wm.DataFormatter", {}, {}]
 										}],
 										busqueda_butt_goTo: ["wm.Picture", {"_classes":{"domNode":["wm_BackgroundColor_White","wm_Border_BottomStyleCurved4px"]},"height":"100%","border":"0","width":"100%","source":"http://www.clker.com/cliparts/e/W/V/j/4/F/icon-next-blue-light-braun-hi.png","aspect":"h","disabled":true}, {"onclick":"busqueda_butt_goToClick"}]
 									}]
 								}],
-								panel_grupos_familiares: ["wm.Panel", {"_classes":{"domNode":["wm_SilverBlueTheme_LightBlueInsetPanel"]},"height":"200%","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right","padding":"5"}, {}, {
+								panel_grupos_familiares: ["wm.Panel", {"_classes":{"domNode":["wm_SilverBlueTheme_LightBlueInsetPanel"]},"height":"200%","width":"100%","padding":"5","layoutKind":"left-to-right","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 									inscpersonagrupofamiliarGridPanel: ["wm.FancyPanel", {"_classes":{"domNode":["wm_BackgroundGradient_Blue"]},"horizontalAlign":"left","verticalAlign":"top","title":"","captionClasses":"wm_BackgroundGradient_Blue wm_FontSizePx_16px wm_FontColor_White wm_TextDecoration_Bold","margin":"1","borderColor":"#ffffff","border":"3,3,3,3"}, {}, {
 										busqueda_inscpersonagrupofamiliarDataGrid1: ["wm.DataGrid", {"_classes":{"domNode":["omgDataGrid"]},"border":"0"}, {"onSelected":"busqueda_inscpersonagrupofamiliarDataGrid1Selected"}, {
 											binding: ["wm.Binding", {}, {}, {
@@ -338,7 +338,7 @@ Main.widgets = {
 													}]
 												}],
 												editPanel1: ["wm.EditPanel", {"liveForm":"inscpersonagrupofamiliarLiveForm1","savePanel":"savePanel1","operationPanel":"operationPanel1"}, {}, {
-													savePanel1: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"right","verticalAlign":"top","layoutKind":"left-to-right","showing":false}, {}, {
+													savePanel1: ["wm.Panel", {"height":"100%","width":"100%","layoutKind":"left-to-right","horizontalAlign":"right","verticalAlign":"top","showing":false}, {}, {
 														saveButton1: ["wm.RoundedButton", {"caption":"Guardar","width":"100px","height":"100%"}, {"onclick":"editPanel1.saveData"}, {
 															binding: ["wm.Binding", {}, {}, {
 																wire: ["wm.Wire", {"targetProperty":"disabled","source":"editPanel1.formInvalid","expression":undefined}, {}]
@@ -346,7 +346,7 @@ Main.widgets = {
 														}],
 														cancelButton1: ["wm.RoundedButton", {"caption":"Cancelar","width":"100px","height":"100%"}, {"onclick":"editPanel1.cancelEdit"}]
 													}],
-													operationPanel1: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"right","verticalAlign":"top","layoutKind":"left-to-right"}, {}, {
+													operationPanel1: ["wm.Panel", {"height":"100%","width":"100%","layoutKind":"left-to-right","horizontalAlign":"right","verticalAlign":"top"}, {}, {
 														newButton1: ["wm.RoundedButton", {"caption":"Nuevo","width":"100px","height":"100%"}, {"onclick":"editPanel1.beginDataInsert"}],
 														updateButton1: ["wm.RoundedButton", {"caption":"Actualizar","width":"100px","height":"100%","disabled":true}, {"onclick":"editPanel1.beginDataUpdate"}, {
 															binding: ["wm.Binding", {}, {}, {
@@ -367,13 +367,13 @@ Main.widgets = {
 							}]
 						}],
 						l_Matriculas: ["wm.Layer", {"caption":"Matrícula","horizontalAlign":"left","verticalAlign":"top"}, {"onShow":"l_MatriculasShow"}, {
-							panel2: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right","padding":"5"}, {}, {
+							panel2: ["wm.Panel", {"height":"100%","width":"100%","padding":"5","layoutKind":"left-to-right","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 								Matriculas_layer: ["wm.Layers", {}, {}, {
 									matricula_left_col: ["wm.Layer", {"caption":"layer1","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 										label_estudiante_seleccionado: ["wm.Label", {"_classes":{"domNode":["wm_FontSizePx_12px"]},"height":"36px","width":"100%","border":"0","caption":"ESTUDIANTE NO SELECCIONADO"}, {}, {
 											format: ["wm.DataFormatter", {}, {}]
 										}],
-										left_col_top_header: ["wm.Panel", {"_classes":{"domNode":["wm_BackgroundColor_VeryLightGray"]},"height":"39px","width":"100%","horizontalAlign":"right","verticalAlign":"middle","layoutKind":"left-to-right"}, {}, {
+										left_col_top_header: ["wm.Panel", {"_classes":{"domNode":["wm_BackgroundColor_VeryLightGray"]},"height":"39px","width":"100%","layoutKind":"left-to-right","horizontalAlign":"right","verticalAlign":"middle"}, {}, {
 											matriculas_tipo_productos: ["wm.SelectEditor", {"width":"243px","caption":"Tipo producto","captionSize":"70%"}, {"onchange":"l_matriculas_inscalumcostoLiveVariable1"}, {
 												editor: ["wm._SelectEditor", {"displayField":"name","dataField":"dataValue"}, {}, {
 													binding: ["wm.Binding", {}, {}, {
@@ -412,21 +412,21 @@ Main.widgets = {
 												}]
 											}],
 											splitter1: ["wm.Splitter", {"height":"4px","width":"100%","border":"0"}, {}],
-											pannel_documentos_impresion: ["wm.Panel", {"_classes":{"domNode":["wm_BackgroundColor_VeryLightGray"]},"height":"50%","width":"100%","horizontalAlign":"left","verticalAlign":"top","padding":"5,10,10,10"}, {}, {
+											pannel_documentos_impresion: ["wm.Panel", {"_classes":{"domNode":["wm_BackgroundColor_VeryLightGray"]},"height":"50%","width":"100%","padding":"5,10,10,10","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 												matriculas_box_param_comentario: ["wm.TextAreaEditor", {"height":"50px","width":"100%","caption":"Comentario","captionAlign":"left","displayValue":"sin comentario...","captionSize":"10%","captionPosition":"top"}, {}, {
 													binding: ["wm.Binding", {}, {}, {
 														wire: ["wm.Wire", {"targetProperty":"dataValue","expression":"\"sin comentario...\""}, {}]
 													}],
 													editor: ["wm._TextAreaEditor", {}, {}]
 												}],
-												contratos: ["wm.Panel", {"height":"48px","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right"}, {}, {
+												contratos: ["wm.Panel", {"height":"48px","width":"100%","layoutKind":"left-to-right","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 													b_contratoMatricula: ["wm.Button", {"_classes":{"domNode":["wm_BackgroundColor_White"]},"height":"45px","width":"100%","borderColor":"#C53727","caption":"» CONTRATO MATRÍCULA"}, {"onclick":"b_contratoMatriculaClick"}],
 													b_contratoTransporte: ["wm.Button", {"height":"45px","width":"100%","borderColor":"#C53727","caption":"» CONTRATO TRANSPORTE","showing":false}, {"onclick":"b_contratoTransporteClick"}],
 													b_contratoAlimentacion: ["wm.Button", {"height":"45px","width":"100%","borderColor":"#C53727","caption":"» CONTRATO ALIMENTACIÓN","showing":false}, {"onclick":"b_contratoAlimentacionClick"}],
 													b_contratoSeguro: ["wm.Button", {"_classes":{"domNode":["wm_BackgroundColor_White"]},"height":"45px","width":"100%","borderColor":"#C53727","caption":"» CONTRATO SEGUROS"}, {"onclick":"b_contratoSeguroClick"}]
 												}],
 												recibos: ["wm.Panel", {"height":"50px","width":"100%","horizontalAlign":"center","verticalAlign":"top"}, {}, {
-													panel5: ["wm.Panel", {"height":"45px","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right"}, {}, {
+													panel5: ["wm.Panel", {"height":"45px","width":"100%","layoutKind":"left-to-right","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 														b_pagare: ["wm.Button", {"height":"45px","width":"100%","borderColor":"#8A2BE2","caption":"» PAGARÉ","showing":false}, {"onclick":"b_pagareClick"}],
 														b_reciboMatricula: ["wm.Button", {"_classes":{"domNode":["wm_BackgroundColor_White"]},"height":"45px","width":"100%","borderColor":"#3C9300","caption":"» RECIBO DE MATRÍCULA"}, {"onclick":"b_reciboMatriculaClick"}],
 														b_reciboMensualidades: ["wm.Button", {"height":"45px","width":"100%","borderColor":"#FFB515","caption":"» PRESUPUESTO MENSUALIDADES"}, {"onclick":"b_reciboMensualidadesClick"}],
@@ -468,7 +468,7 @@ Main.widgets = {
 											wire2: ["wm.Wire", {"targetProperty":"dataOutput.sy","source":"relatedEditor2.dataOutput","expression":undefined}, {}]
 										}],
 										editPanel2: ["wm.EditPanel", {"_classes":{"domNode":["wm_BackgroundColor_White"]},"liveForm":"inscalumcostoLiveForm1","savePanel":"savePanel2","operationPanel":"operationPanel2"}, {}, {
-											savePanel2: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"right","verticalAlign":"top","layoutKind":"left-to-right","showing":false}, {}, {
+											savePanel2: ["wm.Panel", {"height":"100%","width":"100%","layoutKind":"left-to-right","horizontalAlign":"right","verticalAlign":"top","showing":false}, {}, {
 												saveButton2: ["wm.RoundedButton", {"caption":"Guardar","width":"100px","height":"100%"}, {"onclick":"editPanel2.saveData"}, {
 													binding: ["wm.Binding", {}, {}, {
 														wire: ["wm.Wire", {"targetProperty":"disabled","source":"editPanel2.formInvalid","expression":undefined}, {}]
@@ -476,7 +476,7 @@ Main.widgets = {
 												}],
 												cancelButton2: ["wm.RoundedButton", {"caption":"Cancelar","width":"100px","height":"100%"}, {"onclick":"editPanel2.cancelEdit"}]
 											}],
-											operationPanel2: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"right","verticalAlign":"top","layoutKind":"left-to-right"}, {}, {
+											operationPanel2: ["wm.Panel", {"height":"100%","width":"100%","layoutKind":"left-to-right","horizontalAlign":"right","verticalAlign":"top"}, {}, {
 												newButton2: ["wm.RoundedButton", {"caption":"Nuevo","width":"100px","height":"100%"}, {"onclick":"editPanel2.beginDataInsert"}],
 												updateButton2: ["wm.RoundedButton", {"caption":"Actualizar","width":"100px","height":"100%","disabled":true}, {"onclick":"editPanel2.beginDataUpdate"}, {
 													binding: ["wm.Binding", {}, {}, {
@@ -532,7 +532,7 @@ Main.widgets = {
 												}]
 											}]
 										}],
-										inscritoEditor1: ["wm.Editor", {"caption":"Inscrito","width":"100%","height":"22px","display":"CheckBox","readonly":true,"formField":"inscrito","captionSize":"65%","displayValue":true,"emptyValue":"false"}, {}, {
+										inscritoEditor1: ["wm.Editor", {"caption":"Inscrito","width":"100%","height":"22px","display":"CheckBox","readonly":true,"formField":"inscrito","displayValue":true,"emptyValue":"false","captionSize":"65%"}, {}, {
 											editor: ["wm._CheckBoxEditor", {"dataType":"boolean"}, {}]
 										}],
 										matriculas_box_nombreProducto: ["wm.TextEditor", {"width":"150%","caption":"Nombre del Producto","height":"22px","captionSize":"70%","readonly":true}, {}, {
@@ -549,19 +549,19 @@ Main.widgets = {
 										}],
 										operaciones: ["wm.Layers", {"height":"108px"}, {}, {
 											layer10: ["wm.Layer", {"caption":"layer10","horizontalAlign":"right","verticalAlign":"top"}, {}, {
-												matriculas_box_valorProducto: ["wm.NumberEditor", {"_classes":{"domNode":["wm_FontColor_Green","wm_TextDecoration_Bold"]},"height":"23px","width":"85%","caption":"Valor Producto [$COP]","readonly":true,"disabled":true,"captionSize":"85%"}, {"onchange":"matriculas_box_valorProductoChange"}, {
+												matriculas_box_valorProducto: ["wm.NumberEditor", {"_classes":{"domNode":["wm_FontColor_Green","wm_TextDecoration_Bold"]},"disabled":true,"height":"23px","width":"85%","caption":"Valor Producto [$COP]","captionSize":"85%","readonly":true}, {"onchange":"matriculas_box_valorProductoChange"}, {
 													editor: ["wm._NumberEditor", {"changeOnKey":true,"changeOnEnter":true}, {}]
 												}],
 												descuentoPorcentajeEditor1: ["wm.Editor", {"_classes":{"domNode":["wm_TextDecoration_Bold","wm_FontColor_Red"]},"caption":"Porcentaje Dcto [%] ","width":"85%","height":"23px","display":"Number","readonly":true,"formField":"descuentoPorcentaje","captionSize":"85%"}, {"onchange":"descuentoPorcentajeEditor1Change"}, {
 													editor: ["wm._NumberEditor", {"required":true,"changeOnKey":true,"changeOnEnter":true}, {}]
 												}],
-												descuentoValorEditor1: ["wm.Editor", {"_classes":{"domNode":["wm_TextDecoration_Bold","wm_FontColor_Green"]},"caption":"Valor Dcto [$COP]","width":"85%","height":"22px","display":"Number","readonly":true,"formField":"descuentoValor","captionSize":"85%","disabled":true}, {"onchange":"descuentoValorEditor1Change"}, {
+												descuentoValorEditor1: ["wm.Editor", {"_classes":{"domNode":["wm_TextDecoration_Bold","wm_FontColor_Green"]},"caption":"Valor Dcto [$COP]","width":"85%","height":"22px","display":"Number","readonly":true,"formField":"descuentoValor","disabled":true,"captionSize":"85%"}, {"onchange":"descuentoValorEditor1Change"}, {
 													binding: ["wm.Binding", {}, {}, {
 														wire: ["wm.Wire", {"targetProperty":"dataValue","expression":"${matriculas_box_valorProducto.dataValue}*${descuentoPorcentajeEditor1.dataValue}/100"}, {}]
 													}],
 													editor: ["wm._NumberEditor", {"required":true,"changeOnKey":true,"changeOnEnter":true}, {}]
 												}],
-												valorFinalDescuentoEditor1: ["wm.Editor", {"_classes":{"domNode":["wm_TextDecoration_Bold","wm_FontColor_Purple"]},"caption":"Total Valor [$COP]","width":"85%","height":"22px","display":"Number","readonly":true,"formField":"valorFinalDescuento","captionSize":"85%","disabled":true}, {}, {
+												valorFinalDescuentoEditor1: ["wm.Editor", {"_classes":{"domNode":["wm_TextDecoration_Bold","wm_FontColor_Purple"]},"caption":"Total Valor [$COP]","width":"85%","height":"22px","display":"Number","readonly":true,"formField":"valorFinalDescuento","disabled":true,"captionSize":"85%"}, {}, {
 													editor: ["wm._NumberEditor", {"required":true}, {}]
 												}]
 											}]
@@ -586,7 +586,7 @@ Main.widgets = {
 							}]
 						}],
 						l_Costos: ["wm.Layer", {"caption":"Costos y Servicios","horizontalAlign":"left","verticalAlign":"top"}, {"onShow":"l_CostosShow"}, {
-							costos_top_panel: ["wm.Panel", {"height":"108px","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right"}, {}, {
+							costos_top_panel: ["wm.Panel", {"height":"108px","width":"100%","layoutKind":"left-to-right","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 								layers5: ["wm.Layers", {}, {}, {
 									layer12: ["wm.Layer", {"caption":"layer12","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 										costos_sel_sy: ["wm.SelectEditor", {"width":"100%","caption":"Año Escolar"}, {}, {
@@ -613,7 +613,7 @@ Main.widgets = {
 										costos_box_codigo: ["wm.TextEditor", {"width":"100%","caption":"Codigo"}, {}, {
 											editor: ["wm._TextEditor", {}, {}]
 										}],
-										panel1: ["wm.Panel", {"height":"48px","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right"}, {}, {
+										panel1: ["wm.Panel", {"height":"48px","width":"100%","layoutKind":"left-to-right","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 											costos_butt_buscar: ["wm.Button", {"height":"100%","width":"100%","borderColor":"#c4161d","caption":"Buscar"}, {"onclick":"costosLiveVariable1"}],
 											costos_butt_limpiar: ["wm.Button", {"height":"100%","width":"100%","borderColor":"#3652a4","caption":"Limpiar"}, {"onclick":"costos_butt_limpiarClick"}]
 										}]
@@ -723,7 +723,7 @@ Main.widgets = {
 											}]
 										}],
 										editPanel3: ["wm.EditPanel", {"_classes":{"domNode":["wm_FontSizePx_12px"]},"liveForm":"costosLiveForm1","savePanel":"savePanel3","operationPanel":"operationPanel3"}, {}, {
-											savePanel3: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"right","verticalAlign":"top","layoutKind":"left-to-right","showing":false}, {}, {
+											savePanel3: ["wm.Panel", {"height":"100%","width":"100%","layoutKind":"left-to-right","horizontalAlign":"right","verticalAlign":"top","showing":false}, {}, {
 												saveButton3: ["wm.RoundedButton", {"caption":"Guardar","width":"100px","height":"100%"}, {"onclick":"editPanel3.saveData"}, {
 													binding: ["wm.Binding", {}, {}, {
 														wire: ["wm.Wire", {"targetProperty":"disabled","source":"editPanel3.formInvalid","expression":undefined}, {}]
@@ -731,7 +731,7 @@ Main.widgets = {
 												}],
 												cancelButton3: ["wm.RoundedButton", {"caption":"Cancelar","width":"100px","height":"100%"}, {"onclick":"editPanel3.cancelEdit"}]
 											}],
-											operationPanel3: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"right","verticalAlign":"top","layoutKind":"left-to-right"}, {}, {
+											operationPanel3: ["wm.Panel", {"height":"100%","width":"100%","layoutKind":"left-to-right","horizontalAlign":"right","verticalAlign":"top"}, {}, {
 												newButton3: ["wm.RoundedButton", {"caption":"Nuevo","width":"100px","height":"100%"}, {"onclick":"editPanel3.beginDataInsert"}],
 												updateButton3: ["wm.RoundedButton", {"caption":"Actualizar","width":"100px","height":"100%","disabled":true}, {"onclick":"editPanel3.beginDataUpdate"}, {
 													binding: ["wm.Binding", {}, {}, {
@@ -750,9 +750,9 @@ Main.widgets = {
 							}]
 						}],
 						layer4: ["wm.Layer", {"caption":"Personas","horizontalAlign":"left","verticalAlign":"top","showing":false}, {}],
-						l_Promocion: ["wm.Layer", {"caption":"Promoción","horizontalAlign":"left","verticalAlign":"top","roles":["14","13","17"],"layoutKind":"left-to-right"}, {}, {
+						l_Promocion: ["wm.Layer", {"caption":"Promoción","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right","roles":["14","13","17"]}, {}, {
 							panel6: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"left","verticalAlign":"top"}, {}, {
-								search_panel: ["wm.Panel", {"_classes":{"domNode":["wm_BackgroundColor_VeryLightGray"]},"height":"30px","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right"}, {}, {
+								search_panel: ["wm.Panel", {"_classes":{"domNode":["wm_BackgroundColor_VeryLightGray"]},"height":"30px","width":"100%","layoutKind":"left-to-right","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 									promocion_apellido1: ["wm.TextEditor", {"width":"100%","caption":"1er Apellido"}, {}, {
 										editor: ["wm._TextEditor", {}, {}]
 									}],
@@ -760,7 +760,7 @@ Main.widgets = {
 										editor: ["wm._TextEditor", {}, {}]
 									}]
 								}],
-								panel12: ["wm.Panel", {"_classes":{"domNode":["wm_BackgroundColor_VeryLightGray"]},"height":"30px","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right"}, {}, {
+								panel12: ["wm.Panel", {"_classes":{"domNode":["wm_BackgroundColor_VeryLightGray"]},"height":"30px","width":"100%","layoutKind":"left-to-right","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 									promocion_nombre1: ["wm.TextEditor", {"width":"100%","caption":"1er Nombre"}, {}, {
 										editor: ["wm._TextEditor", {}, {}]
 									}],
@@ -768,7 +768,7 @@ Main.widgets = {
 										editor: ["wm._TextEditor", {}, {}]
 									}]
 								}],
-								panel11: ["wm.Panel", {"height":"30px","width":"100%","horizontalAlign":"left","verticalAlign":"middle","layoutKind":"left-to-right"}, {}, {
+								panel11: ["wm.Panel", {"height":"30px","width":"100%","layoutKind":"left-to-right","horizontalAlign":"left","verticalAlign":"middle"}, {}, {
 									promocion_sy: ["wm.SelectEditor", {"width":"100%","caption":"Año escolar","captionSize":"65%"}, {}, {
 										editor: ["wm._SelectEditor", {"displayField":"schoolYear","dataField":"idSy"}, {}, {
 											binding: ["wm.Binding", {}, {}, {
@@ -829,25 +829,25 @@ Main.widgets = {
 								idPromocionEditor1: ["wm.Editor", {"caption":"Id promocion","width":"100%","height":"26px","display":"Number","readonly":true,"formField":"idPromocion"}, {}, {
 									editor: ["wm._NumberEditor", {"required":true}, {}]
 								}],
-								aprobadoEditor1: ["wm.Editor", {"caption":"Aprobado","width":"100%","height":"26px","display":"CheckBox","readonly":true,"formField":"aprobado","disabled":true,"displayValue":true,"emptyValue":"false","showing":false}, {}, {
+								aprobadoEditor1: ["wm.Editor", {"caption":"Aprobado","width":"100%","height":"26px","display":"CheckBox","readonly":true,"formField":"aprobado","displayValue":true,"emptyValue":"false","disabled":true,"showing":false}, {}, {
 									editor: ["wm._CheckBoxEditor", {"dataType":"boolean"}, {}]
 								}],
 								commentaprobadoEditor1: ["wm.Editor", {"caption":"Comentario","width":"100%","height":"60px","readonly":true,"formField":"commentaprobado","disabled":true,"showing":false}, {}, {
 									editor: ["wm._TextEditor", {}, {}]
 								}],
-								promovidoEditor1: ["wm.Editor", {"caption":"Promovido","width":"100%","height":"26px","display":"CheckBox","readonly":true,"formField":"promovido","disabled":true,"displayValue":true,"emptyValue":"false","showing":false}, {}, {
+								promovidoEditor1: ["wm.Editor", {"caption":"Promovido","width":"100%","height":"26px","display":"CheckBox","readonly":true,"formField":"promovido","displayValue":true,"emptyValue":"false","disabled":true,"showing":false}, {}, {
 									editor: ["wm._CheckBoxEditor", {"dataType":"boolean"}, {}]
 								}],
 								commentpromovidoEditor1: ["wm.Editor", {"caption":"Comentario","width":"100%","height":"60px","readonly":true,"formField":"commentpromovido","disabled":true,"showing":false}, {}, {
 									editor: ["wm._TextEditor", {}, {}]
 								}],
-								autorizadoAcademicoEditor1: ["wm.Editor", {"caption":"Autorización Académica","width":"100%","height":"26px","display":"CheckBox","readonly":true,"formField":"autorizadoAcademico","disabled":true,"displayValue":true,"emptyValue":"false","showing":false}, {}, {
+								autorizadoAcademicoEditor1: ["wm.Editor", {"caption":"Autorización Académica","width":"100%","height":"26px","display":"CheckBox","readonly":true,"formField":"autorizadoAcademico","displayValue":true,"emptyValue":"false","disabled":true,"showing":false}, {}, {
 									editor: ["wm._CheckBoxEditor", {"dataType":"boolean"}, {}]
 								}],
 								commentcomiteEditor1: ["wm.Editor", {"caption":"Comentario","width":"100%","height":"60px","readonly":true,"formField":"commentcomite","disabled":true,"showing":false}, {}, {
 									editor: ["wm._TextEditor", {}, {}]
 								}],
-								autorizadoFinancieraEditor1: ["wm.Editor", {"caption":"Autorización Financiera","width":"100%","height":"26px","display":"CheckBox","readonly":true,"formField":"autorizadoFinanciera","captionSize":"80%","displayValue":true,"emptyValue":"false","roles":["13","14"]}, {}, {
+								autorizadoFinancieraEditor1: ["wm.Editor", {"caption":"Autorización Financiera","width":"100%","height":"26px","display":"CheckBox","readonly":true,"formField":"autorizadoFinanciera","displayValue":true,"emptyValue":"false","captionSize":"80%","roles":["13","14"]}, {}, {
 									editor: ["wm._CheckBoxEditor", {"dataType":"boolean"}, {}]
 								}],
 								commentfinancEditor1: ["wm.Editor", {"caption":"Comentario","width":"100%","height":"80px","readonly":true,"formField":"commentfinanc","singleLine":false,"roles":["13","14"]}, {}, {
@@ -859,13 +859,13 @@ Main.widgets = {
 								calificacionCharEditor1: ["wm.Editor", {"caption":"CalificacionChar","width":"100%","height":"26px","readonly":true,"formField":"calificacionChar","showing":false}, {}, {
 									editor: ["wm._TextEditor", {}, {}]
 								}],
-								autorizadoPromAnticipadaEditor1: ["wm.Editor", {"caption":"Promoción Anticipada","width":"100%","height":"26px","display":"CheckBox","readonly":true,"formField":"autorizadoPromAnticipada","disabled":true,"displayValue":true,"emptyValue":"false","showing":false}, {}, {
+								autorizadoPromAnticipadaEditor1: ["wm.Editor", {"caption":"Promoción Anticipada","width":"100%","height":"26px","display":"CheckBox","readonly":true,"formField":"autorizadoPromAnticipada","displayValue":true,"emptyValue":"false","disabled":true,"showing":false}, {}, {
 									editor: ["wm._CheckBoxEditor", {"dataType":"boolean"}, {}]
 								}],
 								checkBoxEditor1: ["wm.CheckBoxEditor", {"width":"100%","caption":"Autorización CRA","readonly":true,"emptyValue":"false","captionSize":"80%","roles":["17"],"formField":"autorizadoCra"}, {}, {
 									editor: ["wm._CheckBoxEditor", {"dataType":"boolean"}, {}]
 								}],
-								textAreaEditor1: ["wm.TextAreaEditor", {"height":"80px","width":"100%","caption":"Comentario","singleLine":false,"readonly":true,"display":"Text","roles":["17"],"formField":"commentCra"}, {}, {
+								textAreaEditor1: ["wm.TextAreaEditor", {"height":"80px","width":"100%","caption":"Comentario","display":"Text","singleLine":false,"readonly":true,"roles":["17"],"formField":"commentCra"}, {}, {
 									editor: ["wm._TextEditor", {}, {}]
 								}],
 								panel13: ["wm.Panel", {"height":"55px","width":"100%","horizontalAlign":"left","verticalAlign":"top"}, {}, {
@@ -889,7 +889,7 @@ Main.widgets = {
 									}]
 								}],
 								editPanel4: ["wm.EditPanel", {"liveForm":"promocionLiveForm1","savePanel":"savePanel4","operationPanel":"operationPanel4","lock":false}, {}, {
-									savePanel4: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"right","verticalAlign":"top","layoutKind":"left-to-right","showing":false}, {}, {
+									savePanel4: ["wm.Panel", {"height":"100%","width":"100%","layoutKind":"left-to-right","horizontalAlign":"right","verticalAlign":"top","showing":false}, {}, {
 										saveButton4: ["wm.RoundedButton", {"caption":"Guardar","width":"100px","height":"100%"}, {"onclick":"editPanel4.saveData"}, {
 											binding: ["wm.Binding", {}, {}, {
 												wire: ["wm.Wire", {"targetProperty":"disabled","source":"editPanel4.formInvalid","expression":undefined}, {}]
@@ -897,7 +897,7 @@ Main.widgets = {
 										}],
 										cancelButton4: ["wm.RoundedButton", {"caption":"Cancelar","width":"100px","height":"100%"}, {"onclick":"editPanel4.cancelEdit"}]
 									}],
-									operationPanel4: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"right","verticalAlign":"top","layoutKind":"left-to-right"}, {}, {
+									operationPanel4: ["wm.Panel", {"height":"100%","width":"100%","layoutKind":"left-to-right","horizontalAlign":"right","verticalAlign":"top"}, {}, {
 										newButton4: ["wm.RoundedButton", {"caption":"New","width":"100px","height":"100%","showing":false}, {"onclick":"editPanel4.beginDataInsert"}],
 										updateButton4: ["wm.RoundedButton", {"caption":"Actualizar","width":"100px","height":"100%","disabled":true}, {"onclick":"editPanel4.beginDataUpdate"}, {
 											binding: ["wm.Binding", {}, {}, {
@@ -914,7 +914,7 @@ Main.widgets = {
 							}]
 						}],
 						layer3: ["wm.Layer", {"caption":"Informes ● Reportes","horizontalAlign":"left","verticalAlign":"top"}, {}, {
-							panel7: ["wm.Panel", {"_classes":{"domNode":["wm_BackgroundColor_VeryLightGray"]},"height":"114px","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right"}, {}, {
+							panel7: ["wm.Panel", {"_classes":{"domNode":["wm_BackgroundColor_VeryLightGray"]},"height":"114px","width":"100%","layoutKind":"left-to-right","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 								layers9: ["wm.Layers", {}, {}, {
 									layer16: ["wm.Layer", {"caption":"layer16","horizontalAlign":"right","verticalAlign":"top","padding":"5"}, {}, {
 										label2: ["wm.Label", {"height":"32px","width":"100%","border":"0","caption":"Reporte: Total estudiantes matrículados por grado","singleLine":false}, {}, {
@@ -950,14 +950,14 @@ Main.widgets = {
 									}]
 								}]
 							}],
-							panel8: ["wm.Panel", {"_classes":{"domNode":["wm_SilverBlueTheme_LightBlueInsetPanel"]},"height":"38px","width":"100%","horizontalAlign":"center","verticalAlign":"middle","layoutKind":"left-to-right"}, {}, {
-								informes_sel_tipo_documento: ["wm.SelectEditor", {"width":"300px","caption":"Tipo de Reportes a Generar","captionSize":"150%","height":"31px"}, {}, {
-									editor: ["wm._SelectEditor", {"displayField":"name","dataField":"dataValue","options":"PDF, XLS, DOCX","required":true}, {}, {
+							panel8: ["wm.Panel", {"_classes":{"domNode":["wm_SilverBlueTheme_LightBlueInsetPanel"]},"height":"38px","width":"100%","layoutKind":"left-to-right","horizontalAlign":"center","verticalAlign":"middle"}, {}, {
+								informes_sel_tipo_documento: ["wm.SelectEditor", {"width":"300px","caption":"Tipo de Reportes a Generar","height":"31px","captionSize":"150%"}, {}, {
+									editor: ["wm._SelectEditor", {"displayField":"name","dataField":"dataValue","required":true,"options":"PDF, XLS, DOCX"}, {}, {
 										optionsVar: ["wm.Variable", {"type":"EntryData"}, {}]
 									}]
 								}]
 							}],
-							charts: ["wm.Panel", {"height":"100%","width":"100%","horizontalAlign":"left","verticalAlign":"top","layoutKind":"left-to-right","showing":false}, {}]
+							charts: ["wm.Panel", {"height":"100%","width":"100%","layoutKind":"left-to-right","horizontalAlign":"left","verticalAlign":"top","showing":false}, {}]
 						}]
 					}],
 					Footer: ["wm.Template", {"_classes":{"domNode":["wm_SilverBlueTheme_ToolBar"]},"height":"36px","horizontalAlign":"center","verticalAlign":"middle","width":"100%","padding":"2","showing":false}, {}, {
