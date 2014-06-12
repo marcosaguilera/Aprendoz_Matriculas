@@ -214,6 +214,7 @@ dojo.declare("Main", wm.Page, {
   /**INICIO BUSCAR RAPIDO**/
   busqueda_buscarClick: function(inSender, inEvent) {
       this.l_busqueda_insc_alum_curso.update();
+      this.l_busqueda_informacion_promocion.update();
   },
   busqueda_box_apellido1Change: function(inSender, inDisplayValue, inDataValue) {
       this.busqueda_buscar.click();
