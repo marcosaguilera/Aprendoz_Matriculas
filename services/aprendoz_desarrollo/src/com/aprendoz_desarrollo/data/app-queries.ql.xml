@@ -1,0 +1,90 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <meta attribute="@design.default-queries"/>
+    <query name="getUserData">
+        <query-param name="user" type="java.lang.String"/>
+        SELECT
+p.idPersona AS idpersona,
+p.nombre1 AS nombre1,
+p.nombre2 AS nombre2,
+p.apellido1 AS apellido1,
+p.apellido2 AS apellido2,
+p.nombreLdap AS usuario,
+p.clave AS clave,
+p.sexo AS sexo,
+tipo.tipoPersona AS tipoPersona,
+tipo.idTipoPersona as idtipo
+FROM Persona AS p
+INNER JOIN p.tipoPersona AS tipo
+WHERE p.nombreLdap=:user
+    </query>
+    <query name="showInformationUser">
+        <query-param name="user" type="java.lang.String"/>
+        SELECT
+p.tipoDocumento AS tipoDocumento,
+p.noDocumento AS numeroDocumento,
+p.idPersona AS idpersona,
+p.nombre1 AS nombre1,
+p.nombre2 AS nombre2,
+p.apellido1 AS apellido1,
+p.apellido2 AS apellido2,
+p.nombreLdap AS usuario,
+p.clave AS clave,
+p.sexo AS sexo,
+tipo.tipoPersona AS tipoPersona,
+tipo.idTipoPersona as idtipo
+FROM Persona AS p
+INNER JOIN p.tipoPersona AS tipo
+WHERE p.nombreLdap=:user
+    </query>
+    <query name="infoEmailsGroup">
+        <query-param name="pgrupo" type="java.lang.Integer"/>
+        <query-param name="ppersona" type="java.lang.Integer"/>
+        SELECT
+gf.idGrupoFamiliar as idgrupofamiliar,
+gf.grupoFamiliar as grupofamiliar,
+tipostd.idTipoPersona as tipoalumno,
+p.idPersona as idpersona,
+p.nombre1 as stdn1,
+p.nombre2 as stdn2,
+p.apellido1 as stda1,
+p.apellido2 as stda2,
+mama.idPersona as mamaidpersona,
+mama.nombre1 as maman1,
+mama.nombre2 as maman2,
+mama.apellido1 as mamaa1,
+mama.apellido2 as mamaa2,
+mama.email as correomama,
+mama.noDocumento as dnimama,
+tipomama.idTipoPersona as tipomama,
+papa.idPersona as papaidpersona,
+papa.nombre1 as papan1,
+papa.nombre2 as papan2,
+papa.apellido1 as papaa1,
+papa.apellido2 as papaa2,
+papa.email as correopapa,
+papa.noDocumento as dnipapa,
+tipopapa.idTipoPersona as tipopapa
+FROM Persona p INNER JOIN p.grupoFamiliar gf INNER JOIN p.tipoPersona tipostd, Persona mama INNER JOIN mama.grupoFamiliar mamagrupo INNER JOIN mama.tipoPersona tipomama,
+Persona papa INNER JOIN papa.grupoFamiliar papagrupo INNER JOIN papa.tipoPersona tipopapa
+WHERE gf.idGrupoFamiliar=:pgrupo AND p.idPersona=:ppersona AND mamagrupo.idGrupoFamiliar= gf.idGrupoFamiliar AND  papagrupo.idGrupoFamiliar= gf.idGrupoFamiliar
+AND (tipostd.idTipoPersona=1)
+AND (tipomama.idTipoPersona=12 OR tipomama.idTipoPersona=10 OR tipomama.idTipoPersona=7 OR tipomama.idTipoPersona=5 OR tipomama.idTipoPersona=4)
+AND (tipopapa.idTipoPersona=10 OR tipopapa.idTipoPersona=7 OR tipopapa.idTipoPersona=4 OR tipopapa.idTipoPersona=2)
+AND (papa.idPersona &lt;&gt; mama.idPersona)
+    </query>
+    <query name="getPromocionDetails">
+        <query-param name="ppromocion" type="java.lang.Integer"/>
+        SELECT p.idPromocion as idpromocion, pe.idPersona as idpersona, gf.idGrupoFamiliar as idgrupofamiliar
+FROM Promocion p INNER JOIN p.persona pe INNER JOIN pe.grupoFamiliar gf
+WHERE p.idPromocion=:ppromocion
+    </query>
+    <query name="getPeopleDataComplete">
+        <query-param name="pidgf" type="java.lang.Integer"/>
+        SELECT
+p.idPersona as idpersona,
+CONCAT(p.apellido1,&apos; &apos;,p.apellido2,&apos; &apos;,p.nombre1,&apos; &apos;,p.nombre2,&apos; -- &apos;,tp.tipoPersona,&apos; -- &apos;,gf.grupoFamiliar) as completePeopleData
+FROM Persona p INNER JOIN p.grupoFamiliar gf INNER JOIN p.tipoPersona tp
+WHERE gf.idGrupoFamiliar=:pidgf
+    </query>
+</hibernate-mapping>
