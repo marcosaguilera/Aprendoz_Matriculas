@@ -6,20 +6,20 @@ import java.util.Date;
 
 /**
  *  aprendoz_desarrollo.InscAlumAprendizaje
- *  06/09/2014 17:06:45
+ *  06/18/2014 18:10:26
  * 
  */
 public class InscAlumAprendizaje {
 
     private Integer idInscAlumAprendizaje;
-    private Persona persona;
-    private Aprendizaje aprendizaje;
     private Date fechaLogro;
     private String calificacion;
     private Float calificacionNum;
     private String comentario;
     private Date fechaIngreso;
     private String usuario;
+    private Persona persona;
+    private Aprendizaje aprendizaje;
 
     public InscAlumAprendizaje() {
     }
@@ -34,16 +34,16 @@ public class InscAlumAprendizaje {
         this.usuario = usuario;
     }
 
-    public InscAlumAprendizaje(Integer idInscAlumAprendizaje, Persona persona, Aprendizaje aprendizaje, Date fechaLogro, String calificacion, Float calificacionNum, String comentario, Date fechaIngreso, String usuario) {
+    public InscAlumAprendizaje(Integer idInscAlumAprendizaje, Date fechaLogro, String calificacion, Float calificacionNum, String comentario, Date fechaIngreso, String usuario, Persona persona, Aprendizaje aprendizaje) {
         this.idInscAlumAprendizaje = idInscAlumAprendizaje;
-        this.persona = persona;
-        this.aprendizaje = aprendizaje;
         this.fechaLogro = fechaLogro;
         this.calificacion = calificacion;
         this.calificacionNum = calificacionNum;
         this.comentario = comentario;
         this.fechaIngreso = fechaIngreso;
         this.usuario = usuario;
+        this.persona = persona;
+        this.aprendizaje = aprendizaje;
     }
 
     public Integer getIdInscAlumAprendizaje() {
@@ -52,22 +52,6 @@ public class InscAlumAprendizaje {
 
     public void setIdInscAlumAprendizaje(Integer idInscAlumAprendizaje) {
         this.idInscAlumAprendizaje = idInscAlumAprendizaje;
-    }
-
-    public Persona getPersona() {
-        return persona;
-    }
-
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-    }
-
-    public Aprendizaje getAprendizaje() {
-        return aprendizaje;
-    }
-
-    public void setAprendizaje(Aprendizaje aprendizaje) {
-        this.aprendizaje = aprendizaje;
     }
 
     public Date getFechaLogro() {
@@ -116,6 +100,22 @@ public class InscAlumAprendizaje {
 
     public void setUsuario(String usuario) {
         this.usuario = usuario;
+    }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
+
+    public Aprendizaje getAprendizaje() {
+        return aprendizaje;
+    }
+
+    public void setAprendizaje(Aprendizaje aprendizaje) {
+        this.aprendizaje = aprendizaje;
     }
 
 }

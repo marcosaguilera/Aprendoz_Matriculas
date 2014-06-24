@@ -6,33 +6,33 @@ import java.util.Date;
 
 /**
  *  aprendoz_desarrollo.ActualizacionGrupoFamiliar
- *  06/09/2014 17:06:45
+ *  06/18/2014 18:11:10
  * 
  */
 public class ActualizacionGrupoFamiliar {
 
     private Integer idActualizacionGrupoFamiliar;
-    private GrupoFamiliar grupoFamiliar;
     private Date fechaCreacion;
     private Date fecha;
-    private Byte actualizado;
+    private Boolean actualizado;
+    private GrupoFamiliar grupoFamiliar;
 
     public ActualizacionGrupoFamiliar() {
     }
 
-    public ActualizacionGrupoFamiliar(Integer idActualizacionGrupoFamiliar, Date fechaCreacion, Date fecha, Byte actualizado) {
+    public ActualizacionGrupoFamiliar(Integer idActualizacionGrupoFamiliar, Date fechaCreacion, Date fecha, Boolean actualizado) {
         this.idActualizacionGrupoFamiliar = idActualizacionGrupoFamiliar;
         this.fechaCreacion = fechaCreacion;
         this.fecha = fecha;
         this.actualizado = actualizado;
     }
 
-    public ActualizacionGrupoFamiliar(Integer idActualizacionGrupoFamiliar, GrupoFamiliar grupoFamiliar, Date fechaCreacion, Date fecha, Byte actualizado) {
+    public ActualizacionGrupoFamiliar(Integer idActualizacionGrupoFamiliar, Date fechaCreacion, Date fecha, Boolean actualizado, GrupoFamiliar grupoFamiliar) {
         this.idActualizacionGrupoFamiliar = idActualizacionGrupoFamiliar;
-        this.grupoFamiliar = grupoFamiliar;
         this.fechaCreacion = fechaCreacion;
         this.fecha = fecha;
         this.actualizado = actualizado;
+        this.grupoFamiliar = grupoFamiliar;
     }
 
     public Integer getIdActualizacionGrupoFamiliar() {
@@ -41,14 +41,6 @@ public class ActualizacionGrupoFamiliar {
 
     public void setIdActualizacionGrupoFamiliar(Integer idActualizacionGrupoFamiliar) {
         this.idActualizacionGrupoFamiliar = idActualizacionGrupoFamiliar;
-    }
-
-    public GrupoFamiliar getGrupoFamiliar() {
-        return grupoFamiliar;
-    }
-
-    public void setGrupoFamiliar(GrupoFamiliar grupoFamiliar) {
-        this.grupoFamiliar = grupoFamiliar;
     }
 
     public Date getFechaCreacion() {
@@ -67,12 +59,20 @@ public class ActualizacionGrupoFamiliar {
         this.fecha = fecha;
     }
 
-    public Byte getActualizado() {
+    public Boolean getActualizado() {
         return actualizado;
     }
 
-    public void setActualizado(Byte actualizado) {
+    public void setActualizado(Boolean actualizado) {
         this.actualizado = actualizado;
+    }
+
+    public GrupoFamiliar getGrupoFamiliar() {
+        return grupoFamiliar;
+    }
+
+    public void setGrupoFamiliar(GrupoFamiliar grupoFamiliar) {
+        this.grupoFamiliar = grupoFamiliar;
     }
 
 }

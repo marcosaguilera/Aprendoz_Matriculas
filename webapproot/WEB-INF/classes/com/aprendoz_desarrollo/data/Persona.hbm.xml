@@ -144,10 +144,10 @@
             <column name="numero_tarjeta_credito"/>
         </property>
         <property name="profesion" type="string">
-            <column name="Profesion" length="45"/>
+            <column name="Profesion" length="500"/>
         </property>
         <property name="empresa" type="string">
-            <column name="Empresa" length="45"/>
+            <column name="Empresa" length="500"/>
         </property>
         <property name="cargo" type="string">
             <column name="Cargo" length="45"/>
@@ -326,12 +326,6 @@
             </key>
             <one-to-many class="com.aprendoz_desarrollo.data.InscAlumCostoCopy"/>
         </set>
-        <set name="actualizacionDatosPersonas" inverse="true">
-            <key>
-                <column name="persona_id_persona" not-null="true"/>
-            </key>
-            <one-to-many class="com.aprendoz_desarrollo.data.ActualizacionDatosPersona"/>
-        </set>
         <set name="fichaMedicas" inverse="true">
             <key>
                 <column name="persona_id_persona" not-null="true"/>
@@ -421,6 +415,12 @@
                 <column name="Persona_Id_Persona" not-null="true"/>
             </key>
             <one-to-many class="com.aprendoz_desarrollo.data.Coordinacion"/>
+        </set>
+        <set name="actualizacionDatosPersonas" inverse="true">
+            <key>
+                <column name="persona_id_persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.ActualizacionDatosPersona"/>
         </set>
     </class>
 </hibernate-mapping>

@@ -5,18 +5,18 @@ package com.aprendoz_desarrollo.data;
 
 /**
  *  aprendoz_desarrollo.Horario
- *  06/09/2014 17:06:46
+ *  06/18/2014 18:10:27
  * 
  */
 public class Horario {
 
     private Integer idHorario;
+    private Integer numeroSesion;
+    private String dia;
     private Curso curso;
     private Asignatura asignatura;
     private Sy sy;
     private TipoSemana tipoSemana;
-    private Integer numeroSesion;
-    private String dia;
 
     public Horario() {
     }
@@ -27,14 +27,14 @@ public class Horario {
         this.dia = dia;
     }
 
-    public Horario(Integer idHorario, Curso curso, Asignatura asignatura, Sy sy, TipoSemana tipoSemana, Integer numeroSesion, String dia) {
+    public Horario(Integer idHorario, Integer numeroSesion, String dia, Curso curso, Asignatura asignatura, Sy sy, TipoSemana tipoSemana) {
         this.idHorario = idHorario;
+        this.numeroSesion = numeroSesion;
+        this.dia = dia;
         this.curso = curso;
         this.asignatura = asignatura;
         this.sy = sy;
         this.tipoSemana = tipoSemana;
-        this.numeroSesion = numeroSesion;
-        this.dia = dia;
     }
 
     public Integer getIdHorario() {
@@ -43,6 +43,22 @@ public class Horario {
 
     public void setIdHorario(Integer idHorario) {
         this.idHorario = idHorario;
+    }
+
+    public Integer getNumeroSesion() {
+        return numeroSesion;
+    }
+
+    public void setNumeroSesion(Integer numeroSesion) {
+        this.numeroSesion = numeroSesion;
+    }
+
+    public String getDia() {
+        return dia;
+    }
+
+    public void setDia(String dia) {
+        this.dia = dia;
     }
 
     public Curso getCurso() {
@@ -75,22 +91,6 @@ public class Horario {
 
     public void setTipoSemana(TipoSemana tipoSemana) {
         this.tipoSemana = tipoSemana;
-    }
-
-    public Integer getNumeroSesion() {
-        return numeroSesion;
-    }
-
-    public void setNumeroSesion(Integer numeroSesion) {
-        this.numeroSesion = numeroSesion;
-    }
-
-    public String getDia() {
-        return dia;
-    }
-
-    public void setDia(String dia) {
-        this.dia = dia;
     }
 
 }

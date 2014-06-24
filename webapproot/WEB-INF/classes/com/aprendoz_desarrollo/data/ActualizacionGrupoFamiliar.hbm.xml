@@ -11,7 +11,7 @@
         <property name="fecha" type="timestamp">
             <column name="fecha" length="19" not-null="true"/>
         </property>
-        <property name="actualizado" type="byte">
+        <property name="actualizado" type="boolean">
             <column name="actualizado" not-null="true"/>
         </property>
         <many-to-one name="grupoFamiliar" class="com.aprendoz_desarrollo.data.GrupoFamiliar" cascade="none">

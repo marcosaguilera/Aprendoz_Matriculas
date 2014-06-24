@@ -2,7 +2,10 @@
 package com.aprendoz_desarrollo;
 
 import java.util.List;
+import com.aprendoz_desarrollo.data.output.GetPeopleDataCompleteRtnType;
+import com.aprendoz_desarrollo.data.output.GetPromocionDetailsRtnType;
 import com.aprendoz_desarrollo.data.output.GetUserDataRtnType;
+import com.aprendoz_desarrollo.data.output.InfoEmailsGroupRtnType;
 import com.aprendoz_desarrollo.data.output.ShowInformationUserRtnType;
 import com.wavemaker.json.type.TypeDefinition;
 import com.wavemaker.runtime.data.DataServiceManager;
@@ -16,7 +19,7 @@ import com.wavemaker.runtime.service.TypedServiceReturn;
 
 /**
  *  Operations for service "aprendoz_desarrollo"
- *  06/10/2014 13:33:41
+ *  06/19/2014 07:25:50
  * 
  */
 @SuppressWarnings("unchecked")
@@ -40,8 +43,20 @@ public class Aprendoz_desarrollo
         return ((List<GetUserDataRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.getUserDataQueryName), user));
     }
 
+    public List<GetPeopleDataCompleteRtnType> getPeopleDataComplete(Integer pidgf) {
+        return ((List<GetPeopleDataCompleteRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.getPeopleDataCompleteQueryName), pidgf));
+    }
+
+    public List<InfoEmailsGroupRtnType> infoEmailsGroup(Integer pgrupo, Integer ppersona) {
+        return ((List<InfoEmailsGroupRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.infoEmailsGroupQueryName), pgrupo, ppersona));
+    }
+
     public List<ShowInformationUserRtnType> showInformationUser(String user) {
         return ((List<ShowInformationUserRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.showInformationUserQueryName), user));
+    }
+
+    public List<GetPromocionDetailsRtnType> getPromocionDetails(Integer ppromocion) {
+        return ((List<GetPromocionDetailsRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.getPromocionDetailsQueryName), ppromocion));
     }
 
     public Object insert(Object o) {

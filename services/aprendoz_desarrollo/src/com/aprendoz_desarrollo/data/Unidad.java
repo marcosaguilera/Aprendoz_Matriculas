@@ -8,19 +8,19 @@ import java.util.Set;
 
 /**
  *  aprendoz_desarrollo.Unidad
- *  06/09/2014 17:06:45
+ *  06/18/2014 18:10:26
  * 
  */
 public class Unidad {
 
     private Integer idUnidad;
-    private Asignatura asignatura;
     private String unidad;
     private String unit;
     private Date fechaInicio;
     private Date fechaFin;
     private Integer numeroUnidad;
     private Integer idSyIdIdSy;
+    private Asignatura asignatura;
     private Set<com.aprendoz_desarrollo.data.Subtopico> subtopicos = new HashSet<com.aprendoz_desarrollo.data.Subtopico>();
 
     public Unidad() {
@@ -36,15 +36,15 @@ public class Unidad {
         this.idSyIdIdSy = idSyIdIdSy;
     }
 
-    public Unidad(Integer idUnidad, Asignatura asignatura, String unidad, String unit, Date fechaInicio, Date fechaFin, Integer numeroUnidad, Integer idSyIdIdSy, Set<com.aprendoz_desarrollo.data.Subtopico> subtopicos) {
+    public Unidad(Integer idUnidad, String unidad, String unit, Date fechaInicio, Date fechaFin, Integer numeroUnidad, Integer idSyIdIdSy, Asignatura asignatura, Set<com.aprendoz_desarrollo.data.Subtopico> subtopicos) {
         this.idUnidad = idUnidad;
-        this.asignatura = asignatura;
         this.unidad = unidad;
         this.unit = unit;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.numeroUnidad = numeroUnidad;
         this.idSyIdIdSy = idSyIdIdSy;
+        this.asignatura = asignatura;
         this.subtopicos = subtopicos;
     }
 
@@ -54,14 +54,6 @@ public class Unidad {
 
     public void setIdUnidad(Integer idUnidad) {
         this.idUnidad = idUnidad;
-    }
-
-    public Asignatura getAsignatura() {
-        return asignatura;
-    }
-
-    public void setAsignatura(Asignatura asignatura) {
-        this.asignatura = asignatura;
     }
 
     public String getUnidad() {
@@ -110,6 +102,14 @@ public class Unidad {
 
     public void setIdSyIdIdSy(Integer idSyIdIdSy) {
         this.idSyIdIdSy = idSyIdIdSy;
+    }
+
+    public Asignatura getAsignatura() {
+        return asignatura;
+    }
+
+    public void setAsignatura(Asignatura asignatura) {
+        this.asignatura = asignatura;
     }
 
     public Set<com.aprendoz_desarrollo.data.Subtopico> getSubtopicos() {

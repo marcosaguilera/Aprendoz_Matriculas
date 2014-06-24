@@ -6,20 +6,20 @@ import java.util.Date;
 
 /**
  *  aprendoz_desarrollo.BusRoute
- *  06/09/2014 17:06:45
+ *  06/18/2014 18:10:25
  * 
  */
 public class BusRoute {
 
     private Integer id;
-    private BusBus busBus;
-    private BusDriver busDriver;
     private Date date;
     private String startingPoint;
     private String endingPoint;
     private Date startingTime;
     private Date endingTime;
     private Date created;
+    private BusBus busBus;
+    private BusDriver busDriver;
 
     public BusRoute() {
     }
@@ -34,16 +34,16 @@ public class BusRoute {
         this.created = created;
     }
 
-    public BusRoute(Integer id, BusBus busBus, BusDriver busDriver, Date date, String startingPoint, String endingPoint, Date startingTime, Date endingTime, Date created) {
+    public BusRoute(Integer id, Date date, String startingPoint, String endingPoint, Date startingTime, Date endingTime, Date created, BusBus busBus, BusDriver busDriver) {
         this.id = id;
-        this.busBus = busBus;
-        this.busDriver = busDriver;
         this.date = date;
         this.startingPoint = startingPoint;
         this.endingPoint = endingPoint;
         this.startingTime = startingTime;
         this.endingTime = endingTime;
         this.created = created;
+        this.busBus = busBus;
+        this.busDriver = busDriver;
     }
 
     public Integer getId() {
@@ -52,22 +52,6 @@ public class BusRoute {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public BusBus getBusBus() {
-        return busBus;
-    }
-
-    public void setBusBus(BusBus busBus) {
-        this.busBus = busBus;
-    }
-
-    public BusDriver getBusDriver() {
-        return busDriver;
-    }
-
-    public void setBusDriver(BusDriver busDriver) {
-        this.busDriver = busDriver;
     }
 
     public Date getDate() {
@@ -116,6 +100,22 @@ public class BusRoute {
 
     public void setCreated(Date created) {
         this.created = created;
+    }
+
+    public BusBus getBusBus() {
+        return busBus;
+    }
+
+    public void setBusBus(BusBus busBus) {
+        this.busBus = busBus;
+    }
+
+    public BusDriver getBusDriver() {
+        return busDriver;
+    }
+
+    public void setBusDriver(BusDriver busDriver) {
+        this.busDriver = busDriver;
     }
 
 }

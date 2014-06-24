@@ -7,15 +7,15 @@ import java.util.Set;
 
 /**
  *  aprendoz_desarrollo.Subarea
- *  06/09/2014 17:06:46
+ *  06/18/2014 18:10:26
  * 
  */
 public class Subarea {
 
     private Integer idSubarea;
-    private Area area;
     private String subarea;
     private Integer idSyIdIdSy;
+    private Area area;
     private Set<com.aprendoz_desarrollo.data.Eje> ejes = new HashSet<com.aprendoz_desarrollo.data.Eje>();
 
     public Subarea() {
@@ -27,11 +27,11 @@ public class Subarea {
         this.idSyIdIdSy = idSyIdIdSy;
     }
 
-    public Subarea(Integer idSubarea, Area area, String subarea, Integer idSyIdIdSy, Set<com.aprendoz_desarrollo.data.Eje> ejes) {
+    public Subarea(Integer idSubarea, String subarea, Integer idSyIdIdSy, Area area, Set<com.aprendoz_desarrollo.data.Eje> ejes) {
         this.idSubarea = idSubarea;
-        this.area = area;
         this.subarea = subarea;
         this.idSyIdIdSy = idSyIdIdSy;
+        this.area = area;
         this.ejes = ejes;
     }
 
@@ -41,14 +41,6 @@ public class Subarea {
 
     public void setIdSubarea(Integer idSubarea) {
         this.idSubarea = idSubarea;
-    }
-
-    public Area getArea() {
-        return area;
-    }
-
-    public void setArea(Area area) {
-        this.area = area;
     }
 
     public String getSubarea() {
@@ -65,6 +57,14 @@ public class Subarea {
 
     public void setIdSyIdIdSy(Integer idSyIdIdSy) {
         this.idSyIdIdSy = idSyIdIdSy;
+    }
+
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
     }
 
     public Set<com.aprendoz_desarrollo.data.Eje> getEjes() {

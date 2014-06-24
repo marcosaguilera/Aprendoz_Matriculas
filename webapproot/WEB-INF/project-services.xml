@@ -11,4 +11,5 @@
     <import resource="classpath:com/wavemaker/runtime/service/runtimeServiceBean.xml"/>
     <import resource="classpath:screenshot.spring.xml"/>
     <import resource="classpath:securityService.spring.xml"/>
+    <import resource="classpath:sendingMailToParents.spring.xml"/>
 </beans>

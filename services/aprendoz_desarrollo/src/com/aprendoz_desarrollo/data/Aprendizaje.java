@@ -8,17 +8,12 @@ import java.util.Set;
 
 /**
  *  aprendoz_desarrollo.Aprendizaje
- *  06/09/2014 17:06:45
+ *  06/18/2014 18:10:27
  * 
  */
 public class Aprendizaje {
 
     private Integer idAprendizaje;
-    private Inteligencia inteligencia;
-    private DimensionComprension dimensionComprension;
-    private Subtopico subtopico;
-    private NivelEsperado nivelEsperado;
-    private DimensionCurricular dimensionCurricular;
     private Date fechaEsperada;
     private String aprendizaje;
     private String learning;
@@ -26,6 +21,11 @@ public class Aprendizaje {
     private Integer ejeIdEje;
     private Integer eje2IdEje;
     private Integer eje3IdEje;
+    private Inteligencia inteligencia;
+    private DimensionComprension dimensionComprension;
+    private Subtopico subtopico;
+    private NivelEsperado nivelEsperado;
+    private DimensionCurricular dimensionCurricular;
     private Set<com.aprendoz_desarrollo.data.CalificacionFinal> calificacionFinals = new HashSet<com.aprendoz_desarrollo.data.CalificacionFinal>();
     private Set<com.aprendoz_desarrollo.data.InscAlumAprendizaje> inscAlumAprendizajes = new HashSet<com.aprendoz_desarrollo.data.InscAlumAprendizaje>();
 
@@ -43,13 +43,8 @@ public class Aprendizaje {
         this.eje3IdEje = eje3IdEje;
     }
 
-    public Aprendizaje(Integer idAprendizaje, Inteligencia inteligencia, DimensionComprension dimensionComprension, Subtopico subtopico, NivelEsperado nivelEsperado, DimensionCurricular dimensionCurricular, Date fechaEsperada, String aprendizaje, String learning, Integer peso, Integer ejeIdEje, Integer eje2IdEje, Integer eje3IdEje, Set<com.aprendoz_desarrollo.data.CalificacionFinal> calificacionFinals, Set<com.aprendoz_desarrollo.data.InscAlumAprendizaje> inscAlumAprendizajes) {
+    public Aprendizaje(Integer idAprendizaje, Date fechaEsperada, String aprendizaje, String learning, Integer peso, Integer ejeIdEje, Integer eje2IdEje, Integer eje3IdEje, Inteligencia inteligencia, DimensionComprension dimensionComprension, Subtopico subtopico, NivelEsperado nivelEsperado, DimensionCurricular dimensionCurricular, Set<com.aprendoz_desarrollo.data.CalificacionFinal> calificacionFinals, Set<com.aprendoz_desarrollo.data.InscAlumAprendizaje> inscAlumAprendizajes) {
         this.idAprendizaje = idAprendizaje;
-        this.inteligencia = inteligencia;
-        this.dimensionComprension = dimensionComprension;
-        this.subtopico = subtopico;
-        this.nivelEsperado = nivelEsperado;
-        this.dimensionCurricular = dimensionCurricular;
         this.fechaEsperada = fechaEsperada;
         this.aprendizaje = aprendizaje;
         this.learning = learning;
@@ -57,6 +52,11 @@ public class Aprendizaje {
         this.ejeIdEje = ejeIdEje;
         this.eje2IdEje = eje2IdEje;
         this.eje3IdEje = eje3IdEje;
+        this.inteligencia = inteligencia;
+        this.dimensionComprension = dimensionComprension;
+        this.subtopico = subtopico;
+        this.nivelEsperado = nivelEsperado;
+        this.dimensionCurricular = dimensionCurricular;
         this.calificacionFinals = calificacionFinals;
         this.inscAlumAprendizajes = inscAlumAprendizajes;
     }
@@ -67,46 +67,6 @@ public class Aprendizaje {
 
     public void setIdAprendizaje(Integer idAprendizaje) {
         this.idAprendizaje = idAprendizaje;
-    }
-
-    public Inteligencia getInteligencia() {
-        return inteligencia;
-    }
-
-    public void setInteligencia(Inteligencia inteligencia) {
-        this.inteligencia = inteligencia;
-    }
-
-    public DimensionComprension getDimensionComprension() {
-        return dimensionComprension;
-    }
-
-    public void setDimensionComprension(DimensionComprension dimensionComprension) {
-        this.dimensionComprension = dimensionComprension;
-    }
-
-    public Subtopico getSubtopico() {
-        return subtopico;
-    }
-
-    public void setSubtopico(Subtopico subtopico) {
-        this.subtopico = subtopico;
-    }
-
-    public NivelEsperado getNivelEsperado() {
-        return nivelEsperado;
-    }
-
-    public void setNivelEsperado(NivelEsperado nivelEsperado) {
-        this.nivelEsperado = nivelEsperado;
-    }
-
-    public DimensionCurricular getDimensionCurricular() {
-        return dimensionCurricular;
-    }
-
-    public void setDimensionCurricular(DimensionCurricular dimensionCurricular) {
-        this.dimensionCurricular = dimensionCurricular;
     }
 
     public Date getFechaEsperada() {
@@ -163,6 +123,46 @@ public class Aprendizaje {
 
     public void setEje3IdEje(Integer eje3IdEje) {
         this.eje3IdEje = eje3IdEje;
+    }
+
+    public Inteligencia getInteligencia() {
+        return inteligencia;
+    }
+
+    public void setInteligencia(Inteligencia inteligencia) {
+        this.inteligencia = inteligencia;
+    }
+
+    public DimensionComprension getDimensionComprension() {
+        return dimensionComprension;
+    }
+
+    public void setDimensionComprension(DimensionComprension dimensionComprension) {
+        this.dimensionComprension = dimensionComprension;
+    }
+
+    public Subtopico getSubtopico() {
+        return subtopico;
+    }
+
+    public void setSubtopico(Subtopico subtopico) {
+        this.subtopico = subtopico;
+    }
+
+    public NivelEsperado getNivelEsperado() {
+        return nivelEsperado;
+    }
+
+    public void setNivelEsperado(NivelEsperado nivelEsperado) {
+        this.nivelEsperado = nivelEsperado;
+    }
+
+    public DimensionCurricular getDimensionCurricular() {
+        return dimensionCurricular;
+    }
+
+    public void setDimensionCurricular(DimensionCurricular dimensionCurricular) {
+        this.dimensionCurricular = dimensionCurricular;
     }
 
     public Set<com.aprendoz_desarrollo.data.CalificacionFinal> getCalificacionFinals() {

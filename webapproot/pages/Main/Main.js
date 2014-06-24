@@ -60,20 +60,20 @@ dojo.declare("Main", wm.Page, {
   },
   inscpersonagrupofamiliarLiveForm1Success: function(inSender, inData) {
       this.l_busqueda_inscpersonagrupofamiliarLiveVariable1.update();
-      this.inscpersonagrupofamiliarDetailsPanel.hide();
-      this.busqueda_panel1.show();
+      //this.inscpersonagrupofamiliarDetailsPanel.hide();
+      //this.busqueda_panel1.show();
   },
   inscpersonagrupofamiliarLiveForm1UpdateData: function(inSender) {
-      this.inscpersonagrupofamiliarDetailsPanel.hide();
-      this.busqueda_panel1.show();
+     // this.inscpersonagrupofamiliarDetailsPanel.hide();
+     // this.busqueda_panel1.show();
   },
   inscpersonagrupofamiliarLiveForm1DeleteData: function(inSender) {
-      this.inscpersonagrupofamiliarDetailsPanel.hide();
-      this.busqueda_panel1.show();
+     // this.inscpersonagrupofamiliarDetailsPanel.hide();
+     // this.busqueda_panel1.show();
   },
   inscpersonagrupofamiliarLiveForm1InsertData: function(inSender) {
-      this.inscpersonagrupofamiliarDetailsPanel.hide();
-      this.busqueda_panel1.show();
+     // this.inscpersonagrupofamiliarDetailsPanel.hide();
+     // this.busqueda_panel1.show();
   },
   /**acciones en formulario de matriculas**/
   busqueda_personas_cursoSelected: function(inSender, inIndex) {
@@ -497,6 +497,133 @@ dojo.declare("Main", wm.Page, {
           this.log_insertaAcciones.setValue("fechaModificacion", now);
           this.insertaAccionesUsuarios.setDataSet(this.log_insertaAcciones); 
           this.insertaAccionesUsuarios.insertData();         
+  },
+  promocionLiveForm1Success: function(inSender, inData) {
+    try {
+     var aca= this.promocionDataGrid1.selectedItem.getData().autorizadoAcademico;
+     var cra= this.promocionDataGrid1.selectedItem.getData().autorizadoCra;
+     var fra= this.promocionDataGrid1.selectedItem.getData().autorizadoFinanciera; 
+     //var idprm= this.promocionDataGrid1.selectedItem.getData().idPromocion;         
+     if(aca==true && cra==true && fra==true){
+       var idp= main.getPromDetails.getItem(0).data.idpersona;
+       var idg= main.getPromDetails.getItem(0).data.idgrupofamiliar;
+       console.log(idg+"-"+idp);
+       this.infoEmailsGroup.input.setValue("ppersona",idp);
+       this.infoEmailsGroup.input.setValue("pgrupo",idg);
+       this.infoEmailsGroup.update();
+     }else{
+       this.promocionLiveVariable1.update();
+     }    
+    } catch(e) {
+      console.error('ERROR IN promocionLiveForm1Success: ' + e); 
+    } 
+  },
+  promocionDataGrid1Selected: function(inSender, inIndex) {
+    try {
+     var idprm= this.promocionDataGrid1.selectedItem.getData().idPromocion; 
+     this.getPromDetails.input.setValue("ppromocion", idprm);
+     this.getPromDetails.update();
+      
+    } catch(e) {
+      console.error('ERROR IN promocionDataGrid1Selected: ' + e); 
+    } 
+  },
+  getPromDetailsSuccess: function(inSender, inDeprecated) {
+    try {
+     //var   
+      
+    } catch(e) {
+      console.error('ERROR IN getPromDetailsSuccess: ' + e); 
+    } 
+  },
+  infoEmailsGroupSuccess: function(inSender, inDeprecated) { 
+      var correoma= main.infoEmailsGroup.getItem(0).data.correomama;
+      var correopa= main.infoEmailsGroup.getItem(0).data.correopapa;
+      this.sendingEmailJS.input.setValue("correomadre",correoma);
+      this.sendingEmailJS.input.setValue("correopadre",correopa);
+      this.sendingEmailJS.update();    
+      this.promocionLiveVariable1.update();   
+  },
+  sendingEmailJSSuccess: function(inSender, inDeprecated) {
+      alert("****Notificación enviada exitosamente.");
+  },
+  sendingEmailJSError: function(inSender, inError) {
+      alert("****Error al enviar la notificación, intente nuevamente o comuníquese con el administrador del sistema.");
+  },
+  l_actualizacionesShow: function(inSender) {
+    try {
+      var conteo= this.log_grupo_familiar_lv.getCount();
+      if(conteo == 1 ){
+        this.log_grupo_familiar_lv.update();
+      }else{// alert("estan cargadas!");
+      }       
+      
+    } catch(e) {
+      console.error('ERROR IN l_actualizacionesShow: ' + e); 
+    } 
+  },
+  log_Grupo_familiarChange: function(inSender, inDisplayValue, inDataValue) {
+    var idgf= this.log_Grupo_familiar.getDataValue();
+    this.actualizaciondatospersonaLiveVariable1.update();
+    this.actualizaciongrupofamiliarLiveVariable1.update(); 
+    this.getPeopleData.input.setValue("pidgf", idgf);
+    this.getPeopleData.update();
+  },
+  actualizaciondatospersonaLiveForm1BeginUpdate: function(inSender) {
+    this.fechaEditor1.setReadonly(true);
+    this.fechaCreacionEditor1.setReadonly(true);
+    var now=  new Date().getTime();
+    this.fechaCreacionEditor1.setDataValue(now);
+  },
+  actualizaciondatospersonaLiveForm1Success: function(inSender, inData) {
+    this.actualizaciondatospersonaLiveVariable1.update();
+    this.actualizaciongrupofamiliarLiveVariable1.update(); 
+    this.log_personas_grupo_familiar.setReadonly(true); 
+  },
+  actualizaciondatospersonaLiveForm1BeginInsert: function(inSender) {
+  try {
+      var now=  new Date().getTime();      
+      this.log_personas_grupo_familiar.setReadonly(false);
+      this.fechaCreacionEditor1.setReadonly(true);
+      this.fechaEditor1.setReadonly(true);
+      this.personaLookup4.setReadonly(true);
+      
+      this.fechaCreacionEditor1.setDataValue(now);
+      this.fechaEditor1.setDataValue(now);    
+      } catch(e) {
+      console.error('ERROR IN actualizaciondatospersonaLiveForm1BeginInsert: ' + e); 
+    }  
+  }, 
+  log_personas_grupo_familiarChange: function(inSender, inDisplayValue, inDataValue) {
+    try {
+     var idpersona= this.log_personas_grupo_familiar.getDataValue(); 
+     this.personaLookup4.setDataValue(idpersona);
+      
+    } catch(e) {
+      console.error('ERROR IN log_personas_grupo_familiarChange: ' + e); 
+    } 
+  },
+  newButton5Click: function(inSender, inEvent) {
+    try {
+     this.editPanel5.beginDataInsert();
+      
+    } catch(e) {
+      console.error('ERROR IN newButton5Click: ' + e); 
+    } 
+  },
+  actualizaciondatospersonaLiveForm1CancelEdit: function(inSender) {
+    this.log_personas_grupo_familiar.setReadonly(true); 
+  },
+  actualizaciongrupofamiliarLiveForm1BeginUpdate: function(inSender) {
+    try {
+     var now=  new Date().getTime();     
+     this.fechaCreacionEditor2.setReadonly(true);  
+     this.fechaEditor2.setReadonly(true); 
+     this.fechaEditor2.setDataValue(now); 
+      
+    } catch(e) {
+      console.error('ERROR IN actualizaciongrupofamiliarLiveForm1BeginUpdate: ' + e); 
+    } 
   },
   _end: 0
 });

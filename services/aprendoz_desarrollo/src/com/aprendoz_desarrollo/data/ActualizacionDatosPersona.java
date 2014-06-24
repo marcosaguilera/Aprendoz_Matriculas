@@ -6,33 +6,33 @@ import java.util.Date;
 
 /**
  *  aprendoz_desarrollo.ActualizacionDatosPersona
- *  06/09/2014 17:06:46
+ *  06/18/2014 18:10:52
  * 
  */
 public class ActualizacionDatosPersona {
 
     private Integer idActualizacionDatosPersona;
-    private Persona persona;
     private Date fechaCreacion;
     private Date fecha;
-    private Byte actualizado;
+    private Boolean actualizado;
+    private Persona persona;
 
     public ActualizacionDatosPersona() {
     }
 
-    public ActualizacionDatosPersona(Integer idActualizacionDatosPersona, Date fechaCreacion, Date fecha, Byte actualizado) {
+    public ActualizacionDatosPersona(Integer idActualizacionDatosPersona, Date fechaCreacion, Date fecha, Boolean actualizado) {
         this.idActualizacionDatosPersona = idActualizacionDatosPersona;
         this.fechaCreacion = fechaCreacion;
         this.fecha = fecha;
         this.actualizado = actualizado;
     }
 
-    public ActualizacionDatosPersona(Integer idActualizacionDatosPersona, Persona persona, Date fechaCreacion, Date fecha, Byte actualizado) {
+    public ActualizacionDatosPersona(Integer idActualizacionDatosPersona, Date fechaCreacion, Date fecha, Boolean actualizado, Persona persona) {
         this.idActualizacionDatosPersona = idActualizacionDatosPersona;
-        this.persona = persona;
         this.fechaCreacion = fechaCreacion;
         this.fecha = fecha;
         this.actualizado = actualizado;
+        this.persona = persona;
     }
 
     public Integer getIdActualizacionDatosPersona() {
@@ -41,14 +41,6 @@ public class ActualizacionDatosPersona {
 
     public void setIdActualizacionDatosPersona(Integer idActualizacionDatosPersona) {
         this.idActualizacionDatosPersona = idActualizacionDatosPersona;
-    }
-
-    public Persona getPersona() {
-        return persona;
-    }
-
-    public void setPersona(Persona persona) {
-        this.persona = persona;
     }
 
     public Date getFechaCreacion() {
@@ -67,12 +59,20 @@ public class ActualizacionDatosPersona {
         this.fecha = fecha;
     }
 
-    public Byte getActualizado() {
+    public Boolean getActualizado() {
         return actualizado;
     }
 
-    public void setActualizado(Byte actualizado) {
+    public void setActualizado(Boolean actualizado) {
         this.actualizado = actualizado;
+    }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
 
 }
